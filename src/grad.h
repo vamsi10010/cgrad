@@ -25,11 +25,30 @@ typedef struct value_struct {
 } VALUE;
 
 typedef struct node_struct {
-    VALUE value;
+    VALUE *value;
     struct node_struct *prev;
 } NODE;
 
+// Operations
 
+VALUE *add(VALUE *, VALUE *);
+VALUE *mul(VALUE *, VALUE *);
+VALUE *pow(VALUE *, VALUE *);
+VALUE *relu(VALUE *);
+VALUE *tanh(VALUE *);
+VALUE *sub(VALUE *, VALUE *);
+VALUE *div(VALUE *, VALUE *);
+VALUE *neg(VALUE *);
+
+// Backward Functions
+
+void add_backward(VALUE *);
+void mul_backward(VALUE *);
+void pow_backward(VALUE *);
+void relu_backward(VALUE *);
+void tanh_backward(VALUE *);
+
+void backward(VALUE *); // Backward pass
 
 
 
