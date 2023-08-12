@@ -161,4 +161,60 @@ VALUE *neg(VALUE *a) {
     return mul(a, constant(-1));
 }
 
+// NODE *build_node(VALUE *v) {
+//     assert(v != NULL);
+
+//     NODE *node = malloc(sizeof(NODE));
+//     assert(node != NULL);
+
+//     *node = (NODE) {
+//         .value = v
+//         };
+
+//     return node;
+// }
+
+void build_topological_order(VALUE *v, NODE **head) {
+    assert(v != NULL);
+    assert(*head != NULL);
+
+    if (!(v->visited)) {
+        v->visited = true;
+
+        if (v->left != NULL) {
+            build_topological_order(v->left, head);
+        }
+
+        if (v->right != NULL) {
+            build_topological_order(v->right, head);
+        }
+
+        NODE *node = malloc(sizeof(NODE));
+        assert(node != NULL);
+
+        *node = (NODE) {
+            .value = v,
+            .next = *head
+            };
+
+        *head = node;
+    }
+}
+
+void backward(VALUE *v) {
+    assert(v != NULL);
+
+    NODE *head = NULL;
+
+    build_topological_order(v, &head);
+
+    v->grad = 1;
+    while (head != NULL) {
+        NODE *tmp = head;
+        head->value->backward(head->value);
+        head = head->next;
+        tmp->value->visited = false;
+        free(tmp);
+    }
+}
 

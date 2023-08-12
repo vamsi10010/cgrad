@@ -25,11 +25,12 @@ typedef struct value_struct {
     OPERATION op;
     struct value_struct *left;
     struct value_struct *right;
+    bool visited;
 } VALUE;
 
 typedef struct node_struct {
     VALUE *value;
-    struct node_struct *prev;
+    struct node_struct *next;
 } NODE;
 
 // Operations
@@ -55,6 +56,8 @@ void backward(VALUE *); // Backward pass
 
 // Helper Functions
 VALUE *constant(double);
+void build_topological_order(VALUE *, NODE **);
+NODE *build_node(VALUE *);
 
 
 
