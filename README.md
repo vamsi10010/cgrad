@@ -1,5 +1,5 @@
 # cgrad (IN PROGRESS)
-minimal autograd library in C 
+cgrad is a minimal reverse mode auto differentiation library that implements a computational graph and optimizes parameters in runtime.
 
 Inspired by Andrej Karpathy's [micrograd](https://github.com/karpathy/micrograd.git)
 
