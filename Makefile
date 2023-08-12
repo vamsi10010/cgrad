@@ -67,7 +67,7 @@ CFLAGS := -O3 $(STD) $(STACK) $(WARNS)
 DEBUG := -g3 -DDEBUG=1
 
 # Dependency libraries
-LIBS := # -lm  -I some/path/to/library
+LIBS := -lm #-I some/path/to/library
 
 # Test libraries
 TEST_LIBS := -l cmocka -L /usr/lib
@@ -142,7 +142,7 @@ valgrind:
 # Compile tests and run the test binary
 tests:
 	@echo -en "$(BROWN)CC $(END_COLOR)";
-	$(CC) $(TESTDIR)/main.c -o $(BINDIR)/$(TEST_BINARY) $(DEBUG) $(CFLAGS) $(LIBS) $(TEST_LIBS)
+	$(CC) $(TESTDIR)/main.c $(LIBDIR)/grad.o -o $(BINDIR)/$(TEST_BINARY) $(DEBUG) $(CFLAGS) $(LIBS) $(TEST_LIBS)
 	@which ldconfig && ldconfig -C /tmp/ld.so.cache || true # caching the library linking
 	@echo -en "$(BROWN) Running tests: $(END_COLOR)";
 	./$(BINDIR)/$(TEST_BINARY)

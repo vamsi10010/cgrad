@@ -25,7 +25,7 @@ VALUE *add(VALUE *a, VALUE *b) {
     *c = (VALUE) {
         .val = a->val + b->val,
         .grad = 0,
-        .backward = &add_backward,
+        .backward = add_backward,
         .op = ADD,
         .left = a,
         .right = b
@@ -51,7 +51,7 @@ VALUE *mul(VALUE *a, VALUE *b) {
     *c = (VALUE) {
         .val = a->val * b->val,
         .grad = 0,
-        .backward = &mul_backward,
+        .backward = mul_backward,
         .op = MUL,
         .left = a,
         .right = b
@@ -78,7 +78,7 @@ VALUE *power(VALUE *a, VALUE *b) {
     *c = (VALUE) {
         .val = pow(a->val, b->val),
         .grad = 0,
-        .backward = &power_backward,
+        .backward = power_backward,
         .op = POW,
         .left = a,
         .right = b
@@ -102,7 +102,7 @@ VALUE *relu(VALUE *a) {
     *b = (VALUE) {
         .val = a->val > 0 ? a->val : 0,
         .grad = 0,
-        .backward = &relu_backward,
+        .backward = relu_backward,
         .op = RELU,
         .left = a,
         .right = NULL
@@ -117,7 +117,7 @@ void relu_backward(VALUE *v) {
     v->left->grad += v->grad * (v->left->val > 0);
 }
 
-VALUE *tanh(VALUE *a) {
+VALUE *tanhyp(VALUE *a) {
     assert(a != NULL);
 
     VALUE *b = malloc(sizeof(VALUE));
@@ -126,7 +126,7 @@ VALUE *tanh(VALUE *a) {
     *b = (VALUE) {
         .val = (exp(2 * a->val) - 1) / (exp(2 * a->val) + 1),
         .grad = 0,
-        .backward = &tanh_backward,
+        .backward = tanh_backward,
         .op = TANH,
         .left = a,
         .right = NULL
@@ -148,7 +148,7 @@ VALUE *sub(VALUE *a, VALUE *b) {
     return add(a, neg(b));
 }
 
-VALUE *div(VALUE *a, VALUE *b) {
+VALUE *divide(VALUE *a, VALUE *b) {
     assert(a != NULL);
     assert(b != NULL);
 
@@ -161,22 +161,9 @@ VALUE *neg(VALUE *a) {
     return mul(a, constant(-1));
 }
 
-// NODE *build_node(VALUE *v) {
-//     assert(v != NULL);
-
-//     NODE *node = malloc(sizeof(NODE));
-//     assert(node != NULL);
-
-//     *node = (NODE) {
-//         .value = v
-//         };
-
-//     return node;
-// }
-
 void build_topological_order(VALUE *v, NODE **head) {
     assert(v != NULL);
-    assert(*head != NULL);
+    assert(head != NULL);
 
     if (!(v->visited)) {
         v->visited = true;
@@ -211,10 +198,16 @@ void backward(VALUE *v) {
     v->grad = 1;
     while (head != NULL) {
         NODE *tmp = head;
-        head->value->backward(head->value);
+        if (head->value->backward != NULL) (*(head->value->backward))(head->value);
         head = head->next;
         tmp->value->visited = false;
-        free(tmp);
+        free(tmp);  
     }
 }
+
+
+
+
+
+
 
