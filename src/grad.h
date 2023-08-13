@@ -20,6 +20,11 @@ typedef enum operation_enum {
     CONST
 } OPERATION; 
 
+typedef struct param_struct {
+    double val;
+    double grad;
+} PARAM;
+
 typedef struct value_struct {
     double val;
     double grad;
@@ -28,6 +33,7 @@ typedef struct value_struct {
     struct value_struct *left;
     struct value_struct *right;
     bool visited;
+    PARAM *param;
 } VALUE;
 
 typedef struct node_struct {

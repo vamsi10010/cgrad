@@ -1,6 +1,9 @@
 #include <stdio.h>
 
+#include "normal.h"
+
 int main() {
-    printf("Hello, World!\n");
-    return 0;
+    for (int i = 0; i < 50; i++) {
+        printf("%lf\n", normal(0.0, sqrt(2/10.0)));
+    }
 }
