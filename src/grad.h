@@ -8,8 +8,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-// TODO: Make a new struct called parameter that has a value and a gradient only
-// For each forward and backward pass, we will use values to create the DAG, update the parameters, and free the values.
 
 typedef enum operation_enum {
     ADD,
@@ -23,6 +21,7 @@ typedef enum operation_enum {
 typedef struct param_struct {
     double val;
     double grad;
+    double momentum;
 } PARAM;
 
 typedef struct value_struct {
@@ -65,9 +64,12 @@ void backward(VALUE *); // Backward pass
 
 // Helper Functions
 VALUE *constant(double);
+VALUE *parameter(PARAM *);
 void build_topological_order(VALUE *, NODE **);
 NODE *build_node(VALUE *);
 
+// Graph Functions
+void free_values(VALUE *);
 
 
 

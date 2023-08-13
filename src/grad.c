@@ -15,6 +15,24 @@ VALUE *constant(double a) {
     return v;
 }
 
+VALUE *parameter(PARAM *p) {
+    assert(p != NULL);
+
+    VALUE *v = malloc(sizeof(VALUE));
+    assert(v != NULL);
+
+    *v = (VALUE) {
+        .val = p->val,
+        .grad = p->grad,
+        .op = CONST,
+        .left = NULL,
+        .right = NULL,
+        .param = p
+        };
+
+    return v;
+}
+
 VALUE *add(VALUE *a, VALUE *b) {
     assert(a != NULL);
     assert(b != NULL);
@@ -199,11 +217,26 @@ void backward(VALUE *v) {
     while (head != NULL) {
         NODE *tmp = head;
         if (head->value->backward != NULL) (*(head->value->backward))(head->value);
+
+        if (head->value->param != NULL) {
+            head->value->param->grad += head->value->grad;
+        }   
+
         head = head->next;
         tmp->value->visited = false;
         free(tmp);  
     }
 }
+
+void free_values(VALUE *v) {
+    if (v == NULL) return;
+
+    if (v->left != NULL) free_values(v->left);
+    if (v->right != NULL) free_values(v->right);
+
+    free(v);
+}
+
 
 
 
