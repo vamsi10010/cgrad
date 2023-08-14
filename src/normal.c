@@ -1,7 +1,3 @@
-/*
-  Source: https://people.sc.fsu.edu/~jburkardt/c_src/normal/normal.html
-*/
-
 # include "normal.h"
 
 #define PI (3.141592653589793)
