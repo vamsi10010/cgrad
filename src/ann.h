@@ -9,8 +9,9 @@ typedef struct ann_struct {
     LAYER **layers;
 } ANN;
 
-ANN *ann(int, int *, int);
+ANN *ann(int, int *, OPERATION *, int);
 VALUE **ann_forward(ANN *, VALUE **);
 void ann_descend(ANN *, double, bool);
+void free_ann(ANN *);
 
 #endif // __ANN_H__

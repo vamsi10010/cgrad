@@ -7,11 +7,12 @@
 typedef struct layer_struct {
     int size;
     NEURON **neurons;
+    OPERATION activation;
 } LAYER;
 
-LAYER *layer(int, int);
+LAYER *layer(int, int, OPERATION);
 VALUE **layer_forward(LAYER *, VALUE **);
 void layer_descend(LAYER *, double, bool);
-
+void free_layer(LAYER *);
 
 #endif // __LAYER_H__

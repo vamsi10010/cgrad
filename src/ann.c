@@ -1,6 +1,6 @@
 #include "ann.h"
 
-ANN *ann(int num_layers, int *layer_sizes, int num_inputs) {
+ANN *ann(int num_layers, int *layer_sizes, OPERATION *activations, int num_inputs) {
     assert(num_layers > 0);
     assert(layer_sizes != NULL);
     assert(num_inputs > 0);
@@ -14,7 +14,7 @@ ANN *ann(int num_layers, int *layer_sizes, int num_inputs) {
     assert(a->layers != NULL);
 
     for (int i = 0; i < num_layers; i++) {
-        a->layers[i] = layer(i ? layer_sizes[i - 1] : num_inputs, layer_sizes[i]);
+        a->layers[i] = layer((i ? layer_sizes[i - 1] : num_inputs), layer_sizes[i], activations[i]);
     }
 
     return a;
@@ -40,7 +40,16 @@ void ann_descend(ANN *a, double lr, bool momentum) {
     }
 }
 
-// TODO: Make a train, predict, and eval function
-// Figure out how to free memory when predicting
-// Make function to free ANN
+void free_ann(ANN *a) {
+    assert(a != NULL);
+
+    for (int i = 0; i < a->n_layers; i++) {
+        free_layer(a->layers[i]);
+    }
+
+    free(a->layers);
+    free(a);
+    a = NULL;
+}
+
 // Load and save functions

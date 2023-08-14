@@ -18,21 +18,22 @@ NEURON *neuron(int num_inputs) {
         };
     }
 
-    n->bias = parameter(&(n->params[0]));
+    n->bias = parameter(n->params);
 
     n->weights = malloc(sizeof(VALUE *) * num_inputs);
     assert(n->weights != NULL);
 
     for (int i = 0; i < num_inputs; i++) {
-        n->weights[i] = parameter(&(n->params[i + 1]));
+        n->weights[i] = parameter(n->params + i + 1);
     }
 
     return n;
 }
 
-VALUE *neuron_forward(NEURON *n, VALUE **x) {
+VALUE *neuron_forward(NEURON *n, VALUE **x, OPERATION activation) {
     assert(n != NULL);
     assert(x != NULL);
+    assert(activation == RELU || activation == TANH || activation == SIGMOID);
 
     VALUE *out = constant(0);
 
@@ -40,6 +41,20 @@ VALUE *neuron_forward(NEURON *n, VALUE **x) {
         out = add(out, mul(n->weights[i], x[i]));
     }
     out = add(out, n->bias);
+
+    switch (activation) {
+        case RELU:
+            out = relu(out);
+            break;
+        case TANH:
+            out = tanhyp(out);
+            break;
+        case SIGMOID:
+            out = sigmoid(out);
+            break;
+        default:
+            assert(false);
+    }
 
     return out;
 }
@@ -56,4 +71,13 @@ void neuron_descend(NEURON *n, double lr, bool momentum) {
 
         n->params[i].val -= change;
     }
+}
+
+void free_neuron(NEURON *n) {
+    assert(n != NULL);
+
+    free(n->params);
+    free(n->weights);
+    free(n);
+    n = NULL;
 }

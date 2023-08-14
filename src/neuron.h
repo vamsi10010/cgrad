@@ -12,8 +12,8 @@ typedef struct neuron_struct {
 } NEURON;
 
 NEURON *neuron(int);
-void free_neuron(NEURON *);
-VALUE *neuron_forward(NEURON *, VALUE **);
+VALUE *neuron_forward(NEURON *, VALUE **, OPERATION);
 void neuron_descend(NEURON *, double, bool);
+void free_neuron(NEURON *);
 
 #endif // __NEURON_H__

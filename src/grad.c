@@ -154,9 +154,37 @@ VALUE *tanhyp(VALUE *a) {
 }
 
 void tanh_backward(VALUE *v) {
+    // tanh'(x) = 1 - tanh(x)^2
     assert(v != NULL);
 
     v->left->grad += v->grad * (1 - pow(v->val, 2));
+}
+
+VALUE *sigmoid(VALUE *a) {
+    // not actual sigmoid, this is fast sigmoid
+    // f(x) = x / (1 + |x|)
+    assert(a != NULL);
+
+    VALUE *b = malloc(sizeof(VALUE));
+    assert(b != NULL);
+
+    *b = (VALUE) {
+        .val = a->val / (1 + fabs(a->val)),
+        .grad = 0,
+        .backward = sigmoid_backward,
+        .op = SIGMOID,
+        .left = a,
+        .right = NULL
+        };
+
+    return b;
+}
+
+void sigmoid_backward(VALUE *v) {
+    // f'(x) = 1 / (1 + |x|)^2
+    assert(v != NULL);
+
+    v->left->grad += v->grad * 1 / pow(1 + fabs(v->left->val), 2);
 }
 
 VALUE *sub(VALUE *a, VALUE *b) {
@@ -235,6 +263,7 @@ void free_values(VALUE *v) {
     if (v->right != NULL) free_values(v->right);
 
     free(v);
+    v = NULL;
 }
 
 
