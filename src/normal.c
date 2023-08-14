@@ -5,7 +5,7 @@
 double normal(double mu, double sigma) 
 /*
   Returns a normally distributed random value with mean mu and standard 
-  deviation sigma.
+  deviation sigma. Uses Box-Muller transform.
 */
 {
   double r1 = 0.0;
