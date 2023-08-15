@@ -31,6 +31,19 @@ VALUE **ann_forward(ANN *a, VALUE **x) {
     return x;
 }
 
+VALUE *regularization(ANN *a, REG reg, double c) {
+    assert(a != NULL);
+    assert(c >= 0);
+
+    VALUE *out = constant(0);
+
+    for (int i = 0; i < a->n_layers; i++) {
+        out = add(out, layer_regularization(a->layers[i], reg, c));
+    }
+
+    return out;
+}
+
 void ann_descend(ANN *a, double lr, bool momentum) {
     assert(a != NULL);
     assert(lr > 0);
@@ -51,5 +64,14 @@ void free_ann(ANN *a) {
     free(a);
     a = NULL;
 }
+
+void zero_grad(ANN *a) {
+    assert(a != NULL);
+
+    for (int i = 0; i < a->n_layers; i++) {
+        layer_zero_grad(a->layers[i]);
+    }
+}
+
 
 // Load and save functions

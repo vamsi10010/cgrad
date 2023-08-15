@@ -11,7 +11,9 @@ typedef struct ann_struct {
 
 ANN *ann(int, int *, OPERATION *, int);
 VALUE **ann_forward(ANN *, VALUE **);
+VALUE *regularization(ANN *, REG, double);
 void ann_descend(ANN *, double, bool);
 void free_ann(ANN *);
+void zero_grad(ANN *);
 
 #endif // __ANN_H__

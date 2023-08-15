@@ -35,6 +35,19 @@ VALUE **layer_forward(LAYER *l, VALUE **x) {
     return out;
 }
 
+VALUE *layer_regularization(LAYER *l, REG reg, double c) {
+    assert(l != NULL);
+    assert(c >= 0);
+
+    VALUE *out = constant(0);
+
+    for (int i = 0; i < l->size; i++) {
+        out = add(out, neuron_regularization(l->neurons[i], reg, c));
+    }
+
+    return out;
+}
+
 void layer_descend(LAYER *l, double lr, bool momentum) {
     assert(l != NULL);
     assert(lr > 0);
@@ -54,4 +67,12 @@ void free_layer(LAYER *l) {
     free(l->neurons);
     free(l);
     l = NULL;
+}
+
+void layer_zero_grad(LAYER *l) {
+    assert(l != NULL);
+
+    for (int i = 0; i < l->size; i++) {
+        neuron_zero_grad(l->neurons[i]);
+    }
 }

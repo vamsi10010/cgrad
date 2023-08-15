@@ -111,6 +111,30 @@ void power_backward(VALUE *v) {
     v->left->grad += v->grad * v->right->val * pow(v->left->val, v->right->val - 1);
 }
 
+VALUE *mod(VALUE *a) {
+    assert(a != NULL);
+
+    VALUE *b = malloc(sizeof(VALUE));
+    assert(b != NULL);
+
+    *b = (VALUE) {
+        .val = fabs(a->val),
+        .grad = 0,
+        .backward = mod_backward,
+        .op = MOD,
+        .left = a,
+        .right = NULL
+        };
+    
+    return b;
+}
+
+void mod_backward(VALUE *v) {
+    assert(v != NULL);
+
+    v->left->grad += v->grad * (v->left->val >= 0 ? 1 : -1);
+}
+
 VALUE *relu(VALUE *a) {
     assert(a != NULL);
 

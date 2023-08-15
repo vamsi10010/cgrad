@@ -13,6 +13,7 @@ typedef enum operation_enum {
     ADD,
     MUL,
     POW,
+    MOD,
     RELU,
     TANH,
     SIGMOID,
@@ -46,6 +47,7 @@ typedef struct node_struct {
 VALUE *add(VALUE *, VALUE *);
 VALUE *mul(VALUE *, VALUE *);
 VALUE *power(VALUE *, VALUE *);
+VALUE *mod(VALUE *);
 VALUE *relu(VALUE *);
 VALUE *tanhyp(VALUE *);
 VALUE *sigmoid(VALUE *);
@@ -58,6 +60,7 @@ VALUE *neg(VALUE *);
 void add_backward(VALUE *);
 void mul_backward(VALUE *);
 void power_backward(VALUE *);
+void mod_backward(VALUE *);
 void relu_backward(VALUE *);
 void tanh_backward(VALUE *);
 void sigmoid_backward(VALUE *);

@@ -131,7 +131,7 @@ static void test_neuron(void **state) {
     //dy/dc = w3
     assert_double_equal(c->grad, n->params[3].val, 0.0001);
 
-    zero_grad(n);
+    neuron_zero_grad(n);
 
     assert_int_equal(n->params[1].grad, 0);
     assert_int_equal(n->params[2].grad, 0);
@@ -169,7 +169,7 @@ void test_neuron_descend(void **state) {
     assert_double_equal(n->params[3].val, w3 - 0.1 * c->val, 0.0001);
     assert_double_equal(n->params[0].val, bi - 0.1, 0.0001);
 
-    zero_grad(n);
+    neuron_zero_grad(n);
 
     free_values(&y);
 

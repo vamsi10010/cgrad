@@ -59,6 +59,34 @@ VALUE *neuron_forward(NEURON *n, VALUE **x, OPERATION activation) {
     return out;
 }
 
+VALUE *neuron_regularization(NEURON *n, REG reg, double c) {
+    assert(n != NULL);
+    assert(c > 0);
+
+    VALUE *out = constant(0);
+    
+    switch (reg) {
+    case L1:
+        for (int i = 0; i < n->num_inputs + 1; i++) {
+            out = add(out, mod(n->weights[i]));
+        }
+
+        out = mul(constant(c), out);
+        break;
+    case L2:
+        for (int i = 0; i < n->num_inputs + 1; i++) {
+            out = add(out, power(n->weights[i], constant(2)));
+        }            
+
+        out = mul(constant(c), out);
+        break;
+    default:
+        assert(false);
+    }
+
+    return out;
+}
+
 void neuron_descend(NEURON *n, double lr, bool momentum) {
     assert(n != NULL);
     assert(lr > 0);
@@ -87,7 +115,7 @@ void free_neuron(NEURON *n) {
     n = NULL;
 }
 
-void zero_grad(NEURON *n) {
+void neuron_zero_grad(NEURON *n) {
     assert(n != NULL);
 
     for (int i = 0; i < n->num_inputs + 1; i++) {
