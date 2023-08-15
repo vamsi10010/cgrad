@@ -142,7 +142,7 @@ VALUE *tanhyp(VALUE *a) {
     assert(b != NULL);
 
     *b = (VALUE) {
-        .val = (exp(2 * a->val) - 1) / (exp(2 * a->val) + 1),
+        .val = tanh(a->val),
         .grad = 0,
         .backward = tanh_backward,
         .op = TANH,
@@ -256,14 +256,19 @@ void backward(VALUE *v) {
     }
 }
 
-void free_values(VALUE *v) {
-    if (v == NULL) return;
+void free_values(VALUE **v) {
+    assert(v != NULL);
+    
+    NODE *head = NULL;
 
-    if (v->left != NULL) free_values(v->left);
-    if (v->right != NULL) free_values(v->right);
+    build_topological_order(*v, &head);
 
-    free(v);
-    v = NULL;
+    while (head != NULL) {
+        NODE *tmp = head;
+        head = head->next;
+        free(tmp->value);
+        free(tmp);
+    }
 }
 
 

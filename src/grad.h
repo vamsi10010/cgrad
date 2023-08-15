@@ -72,7 +72,7 @@ void build_topological_order(VALUE *, NODE **);
 NODE *build_node(VALUE *);
 
 // Graph Functions
-void free_values(VALUE *);
+void free_values(VALUE **);
 
 
 

@@ -18,13 +18,11 @@ NEURON *neuron(int num_inputs) {
         };
     }
 
-    n->bias = parameter(n->params);
-
-    n->weights = malloc(sizeof(VALUE *) * num_inputs);
+    n->weights = malloc(sizeof(VALUE *) * (num_inputs + 1));
     assert(n->weights != NULL);
 
-    for (int i = 0; i < num_inputs; i++) {
-        n->weights[i] = parameter(n->params + i + 1);
+    for (int i = 0; i < num_inputs + 1; i++) {
+        n->weights[i] = parameter(n->params + i);
     }
 
     return n;
@@ -33,14 +31,14 @@ NEURON *neuron(int num_inputs) {
 VALUE *neuron_forward(NEURON *n, VALUE **x, OPERATION activation) {
     assert(n != NULL);
     assert(x != NULL);
-    assert(activation == RELU || activation == TANH || activation == SIGMOID);
+    assert(activation == RELU || activation == TANH || activation == SIGMOID || activation == CONST);
 
     VALUE *out = constant(0);
 
     for (int i = 0; i < n->num_inputs; i++) {
-        out = add(out, mul(n->weights[i], x[i]));
+        out = add(out, mul(n->weights[i + 1], x[i]));
     }
-    out = add(out, n->bias);
+    out = add(out, n->weights[0]);
 
     switch (activation) {
         case RELU:
@@ -51,6 +49,8 @@ VALUE *neuron_forward(NEURON *n, VALUE **x, OPERATION activation) {
             break;
         case SIGMOID:
             out = sigmoid(out);
+            break;
+        case CONST:
             break;
         default:
             assert(false);
@@ -67,7 +67,11 @@ void neuron_descend(NEURON *n, double lr, bool momentum) {
     double beta = 0.9; // momentum coefficient
     for (int i = 0; i < n->num_inputs + 1; i++) {
         change = lr * n->params[i].grad;
-        if (momentum) change += lr * beta * n->params[i].momentum;
+
+        if (momentum) {
+            change += lr * beta * n->params[i].momentum;
+            n->params[i].momentum = change;
+        }
 
         n->params[i].val -= change;
     }
@@ -79,5 +83,14 @@ void free_neuron(NEURON *n) {
     free(n->params);
     free(n->weights);
     free(n);
+
     n = NULL;
+}
+
+void zero_grad(NEURON *n) {
+    assert(n != NULL);
+
+    for (int i = 0; i < n->num_inputs + 1; i++) {
+        n->params[i].grad = 0;
+    }
 }
