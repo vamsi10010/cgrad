@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "normal.h": "c",
+        "ann.h": "c",
+        "*.tcc": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}

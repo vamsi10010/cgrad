@@ -1,15 +1,15 @@
-==9165== Memcheck, a memory error detector
-==9165== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==9165== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==9165== Command: bin/cgrad_test_runner
-==9165== Parent PID: 9163
-==9165== 
-==9165== 
-==9165== HEAP SUMMARY:
-==9165==     in use at exit: 0 bytes in 0 blocks
-==9165==   total heap usage: 167 allocs, 167 frees, 6,800 bytes allocated
-==9165== 
-==9165== All heap blocks were freed -- no leaks are possible
-==9165== 
-==9165== For lists of detected and suppressed errors, rerun with: -s
-==9165== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==54398== Memcheck, a memory error detector
+==54398== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==54398== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==54398== Command: bin/cgrad_test_runner
+==54398== Parent PID: 54396
+==54398== 
+==54398== 
+==54398== HEAP SUMMARY:
+==54398==     in use at exit: 0 bytes in 0 blocks
+==54398==   total heap usage: 181 allocs, 181 frees, 74,296 bytes allocated
+==54398== 
+==54398== All heap blocks were freed -- no leaks are possible
+==54398== 
+==54398== For lists of detected and suppressed errors, rerun with: -s
+==54398== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -7,6 +7,7 @@
 #include "../src/nn/neuron.h"
 #include "../src/nn/layer.h"
 #include "../src/nn/ann.h"
+#include "../src/load/data.h"
 
 static void null_test_success(void **state) {
     (void) state; /* unused */
@@ -143,7 +144,7 @@ static void test_neuron(void **state) {
     free_neuron(n);
 }
 
-void test_neuron_descend(void **state) {
+static void test_neuron_descend(void **state) {
     // y = w1*a + w2*b + w3*c + b
     NEURON *n = neuron(3);
 
@@ -175,6 +176,24 @@ void test_neuron_descend(void **state) {
 
     free_neuron(n);
 }
+
+static void test_dataloader(void **state) {
+    double **images;
+    int *labels;
+
+    read_csv(TRIAL_IMAGES, &images, &labels, TRIAL_SIZE);
+
+    int i =  9;
+    double *image = images[i];
+    int label = labels[i];
+
+    assert_int_equal(label, 4);
+
+    print_image(image, label);
+    print_message("EYE TEST FOR 4\n");
+
+    free_images(images, labels, TRIAL_SIZE);
+}
     
 
 int main() {
@@ -186,7 +205,8 @@ int main() {
         cmocka_unit_test(test_tanh),
         cmocka_unit_test(test_sigmoid),
         cmocka_unit_test(test_neuron),
-        cmocka_unit_test(test_neuron_descend)
+        cmocka_unit_test(test_neuron_descend),
+        cmocka_unit_test(test_dataloader),
     };
 
     return cmocka_run_group_tests(tests, NULL, NULL);
