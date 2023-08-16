@@ -41,6 +41,8 @@ SRCDIR := src
 LOGDIR := log
 LIBDIR := lib
 TESTDIR := test
+NNDIR := src/nn
+UTILSDIR := src/utils
 
 
 # Source code file extension
@@ -80,10 +82,11 @@ TEST_BINARY := $(BINARY)_test_runner
 
 
 # %.o file names
-NAMES := $(notdir $(basename $(wildcard $(SRCDIR)/*.$(SRCEXT))))
+NAMES := $(notdir $(basename $(wildcard $(SRCDIR)/**/*.$(SRCEXT))))
+CNAMES := $(wildcard $(SRCDIR)/**/*.c)
 OBJECTS :=$(patsubst %,$(LIBDIR)/%.o,$(NAMES))
 
-LIB_OBJS = $(filter-out $(LIBDIR)/main.o,$(wildcard $(LIBDIR)/*.o))
+LIB_OBJS = $(filter-out $(LIBDIR)/mnist.o,$(wildcard $(LIBDIR)/*.o))
 
 
 #
@@ -125,9 +128,15 @@ all: $(OBJECTS)
 
 
 # Rule for object binaries compilation
-$(LIBDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
+$(LIBDIR)/%.o: $(SRCDIR)/**/%.$(SRCEXT)
 	@echo -en "$(BROWN)CC $(END_COLOR)";
 	$(CC) -c $^ -o $@ $(DEBUG) $(CFLAGS) $(LIBS)
+
+
+# Rule for running binary
+run:
+	@echo -en "$(BROWN)Running $(BINARY): $(END_COLOR)";
+	./$(BINDIR)/$(BINARY)
 
 
 # Rule for run valgrind tool
@@ -148,6 +157,17 @@ tests:
 	@which ldconfig && ldconfig -C /tmp/ld.so.cache || true # caching the library linking
 	@echo -en "$(BROWN) Running tests: $(END_COLOR)";
 	./$(BINDIR)/$(TEST_BINARY)
+
+
+# Rule for running valgrind tool on test binary
+valgrind_tests:
+	valgrind \
+		--track-origins=yes \
+		--leak-check=full \
+		--leak-resolution=high \
+		--log-file=$(LOGDIR)/$@.log \
+		$(BINDIR)/$(TEST_BINARY)
+	@echo -en "\nCheck the log file: $(LOGDIR)/$@.log\n"
 
 
 # Rule for cleaning the project

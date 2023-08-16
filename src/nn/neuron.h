@@ -1,8 +1,8 @@
 #ifndef __NEURON_H__
 #define __NEURON_H__
 
-#include "grad.h"
-#include "normal.h"
+#include "../utils/grad.h"
+#include "../utils/normal.h"
 
 typedef enum regularization_enum {
     L1,

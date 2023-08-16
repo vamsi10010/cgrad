@@ -3,10 +3,10 @@
 #include <setjmp.h>
 #include <cmocka.h>
 
-#include "../src/grad.h"
-#include "../src/neuron.h"
-#include "../src/layer.h"
-#include "../src/ann.h"
+#include "../src/utils/grad.h"
+#include "../src/nn/neuron.h"
+#include "../src/nn/layer.h"
+#include "../src/nn/ann.h"
 
 static void null_test_success(void **state) {
     (void) state; /* unused */

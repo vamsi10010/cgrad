@@ -1,7 +1,7 @@
 #ifndef __ANN_H__
 #define __ANN_H__
 
-#include "grad.h"
+#include "../utils/grad.h"
 #include "layer.h"
 
 typedef struct ann_struct {

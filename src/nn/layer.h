@@ -1,7 +1,7 @@
 #ifndef __LAYER_H__
 #define __LAYER_H__
 
-#include "grad.h"
+#include "../utils/grad.h"
 #include "neuron.h"
 
 typedef struct layer_struct {
