@@ -32,6 +32,8 @@ VALUE **layer_forward(LAYER *l, VALUE **x) {
         out[i] = neuron_forward(l->neurons[i], x, l->activation);
     }
 
+    free(x);
+
     return out;
 }
 

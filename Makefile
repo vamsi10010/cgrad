@@ -165,8 +165,8 @@ valgrind_tests:
 		--track-origins=yes \
 		--leak-check=full \
 		--leak-resolution=high \
-		--log-file=$(LOGDIR)/$@.log \
-		$(BINDIR)/$(TEST_BINARY)
+		--log-file=$(LOGDIR)/$@.log -s \
+		$(BINDIR)/$(TEST_BINARY) 
 	@echo -en "\nCheck the log file: $(LOGDIR)/$@.log\n"
 
 

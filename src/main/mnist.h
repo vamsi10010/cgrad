@@ -6,6 +6,9 @@
 #include <string.h>
 #include <stdbool.h>
 
+#include "../nn/ann.h"
+#include "../load/data.h"
+
 
 
 #endif // __MNIST_H__

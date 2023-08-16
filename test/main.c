@@ -194,6 +194,64 @@ static void test_dataloader(void **state) {
 
     free_images(images, labels, TRIAL_SIZE);
 }
+
+static void test_ann(void **state) {
+    int sizes[3] = {3, 3, 2};
+    OPERATION ops[3] = {RELU, RELU, SIGMOID};
+
+    ANN *nn = ann(3, sizes, ops, 3);
+
+    VALUE **x = malloc(sizeof(VALUE *) * 3);
+
+    VALUE *a = constant(2);
+    VALUE *b = constant(3);
+    VALUE *c = constant(4);
+
+    double w1 = nn->layers[0]->neurons[0]->params[1].val;
+    assert_double_equal(nn->layers[0]->neurons[0]->params[1].grad, 0, 0);
+
+    x[0] = a;
+    x[1] = b;
+    x[2] = c;
+
+    x = ann_forward(nn, x);
+
+    VALUE **y = malloc(sizeof(VALUE *) * 2);
+
+    VALUE *d = constant(1);
+    VALUE *e = constant(3);
+
+    y[0] = d;
+    y[1] = e;
+
+    VALUE *loss = constant(0);
+
+    for (int i = 0; i < sizes[2]; i++) {
+        loss = add(loss, power(sub(x[i], y[i]), constant(2)));
+    }
+
+    loss = divide(loss, constant(sizes[2]));
+
+    loss = add(loss, regularization(nn, L2, 0.1));
+
+    printf("LOSS: %f\n", loss->val);
+
+    backward(loss);
+    free_values(&loss);
+
+    assert_double_not_equal(nn->layers[0]->neurons[0]->params[1].grad, 0, 0);
+    ann_descend(nn, 0.1, false);
+    assert_double_not_equal(nn->layers[0]->neurons[0]->params[1].val, w1, 0);
+    zero_grad(nn);
+    assert_double_equal(nn->layers[0]->neurons[0]->params[1].grad, 0, 0);
+
+    free(x);
+    free(y);
+
+    free_ann(nn);
+
+    // CHECK VALGRIND OUTPUT
+}
     
 
 int main() {
@@ -207,6 +265,7 @@ int main() {
         cmocka_unit_test(test_neuron),
         cmocka_unit_test(test_neuron_descend),
         cmocka_unit_test(test_dataloader),
+        cmocka_unit_test(test_ann)
     };
 
     return cmocka_run_group_tests(tests, NULL, NULL);
