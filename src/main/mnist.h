@@ -14,7 +14,10 @@
 #define EPOCHS 10
 #define MOM_COEFF 0.9
 #define REG_COEFF 0.1
+#define BATCH_SIZE 64
+#define OUTPUT_SIZE 10
 
+int *perm(int);
 void train(ANN *);
 
 #endif // __MNIST_H__

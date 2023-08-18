@@ -364,6 +364,20 @@ void free_values(VALUE **v) {
     }
 }
 
+VALUE **value_array(double *arr, int size) {
+    assert(arr != NULL);
+    assert(size > 0);
+
+    VALUE **out = malloc(sizeof(VALUE *) * size);
+    assert(out != NULL);
+
+    for (int i = 0; i < size; i++) {
+        out[i] = constant(arr[i]);
+    }
+
+    return out;
+}
+
 
 
 

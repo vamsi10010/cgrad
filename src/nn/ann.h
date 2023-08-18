@@ -20,6 +20,6 @@ VALUE *regularization(ANN *, REG, double);
 void ann_descend(ANN *, double, bool);
 void free_ann(ANN *);
 void zero_grad(ANN *);
-VALUE *loss(VALUE **, VALUE *, LOSS);
+VALUE *loss_fn(VALUE **, double, LOSS, int);
 
 #endif // __ANN_H__

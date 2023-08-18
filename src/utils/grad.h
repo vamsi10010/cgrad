@@ -81,6 +81,7 @@ VALUE *constant(double);
 VALUE *parameter(PARAM *);
 void build_topological_order(VALUE *, NODE **);
 NODE *build_node(VALUE *);
+VALUE **value_array(double *, int);
 
 // Graph Functions
 void free_values(VALUE **);

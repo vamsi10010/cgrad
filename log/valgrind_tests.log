@@ -1,0 +1,14 @@
+==60187== Memcheck, a memory error detector
+==60187== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==60187== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==60187== Command: bin/cgrad_test_runner
+==60187== Parent PID: 60185
+==60187== 
+==60187== 
+==60187== HEAP SUMMARY:
+==60187==     in use at exit: 0 bytes in 0 blocks
+==60187==   total heap usage: 3,838 allocs, 3,838 frees, 195,888 bytes allocated
+==60187== 
+==60187== All heap blocks were freed -- no leaks are possible
+==60187== 
+==60187== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

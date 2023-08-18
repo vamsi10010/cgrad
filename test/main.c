@@ -267,6 +267,34 @@ static void test_exp_log(void **state) {
     backward(b);
 
     assert_double_equal(a->grad, exp(2), 0.0001);
+
+    free_values(&c);
+}
+
+static void test_softmax(void **state) {
+    VALUE **x = malloc(sizeof(VALUE *) * 3);
+
+    VALUE *a = constant(2);
+    VALUE *b = constant(3);
+    VALUE *c = constant(4);
+
+    x[0] = a;
+    x[1] = b;
+    x[2] = c;
+
+    x = softmax(x, 3);
+
+    VALUE *sum = constant(0);
+    
+    for (int i = 0; i < 3; i++) {
+        sum = add(sum, x[i]);
+    }
+
+    assert_double_equal(sum->val, 1, 0.0001);
+
+    free_values(&sum);
+
+    free(x);
 }
     
 
@@ -282,7 +310,8 @@ int main() {
         cmocka_unit_test(test_neuron_descend),
         cmocka_unit_test(test_dataloader),
         cmocka_unit_test(test_ann),
-        cmocka_unit_test(test_exp_log)
+        cmocka_unit_test(test_exp_log),
+        cmocka_unit_test(test_softmax)
     };
 
     return cmocka_run_group_tests(tests, NULL, NULL);
