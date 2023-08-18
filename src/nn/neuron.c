@@ -31,7 +31,7 @@ NEURON *neuron(int num_inputs) {
 VALUE *neuron_forward(NEURON *n, VALUE **x, OPERATION activation) {
     assert(n != NULL);
     assert(x != NULL);
-    assert(activation == RELU || activation == TANH || activation == SIGMOID || activation == CONST);
+    assert(activation == RELU || activation == TANH || activation == SIGMOID || activation == CONST || activation == SOFTMAX);
 
     VALUE *out = constant(0);
 
@@ -50,7 +50,7 @@ VALUE *neuron_forward(NEURON *n, VALUE **x, OPERATION activation) {
         case SIGMOID:
             out = sigmoid(out);
             break;
-        case CONST:
+        case CONST || SOFTMAX:
             break;
         default:
             assert(false);

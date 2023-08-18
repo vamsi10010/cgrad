@@ -196,7 +196,7 @@ static void test_dataloader(void **state) {
 }
 
 static void test_ann(void **state) {
-    int sizes[3] = {3, 3, 2};
+    int sizes[3] = {10, 10, 2};
     OPERATION ops[3] = {RELU, RELU, SIGMOID};
 
     ANN *nn = ann(3, sizes, ops, 3);

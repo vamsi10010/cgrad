@@ -135,6 +135,30 @@ void mod_backward(VALUE *v) {
     v->left->grad += v->grad * (v->left->val >= 0 ? 1 : -1);
 }
 
+VALUE *ex(VALUE *a) {
+    assert(a != NULL);
+
+    VALUE *b = malloc(sizeof(VALUE));
+    assert(b != NULL);
+
+    *b = (VALUE) {
+        .val = exp(a->val),
+        .grad = 0,
+        .backward = ex_backward,
+        .op = EXP,
+        .left = a,
+        .right = NULL
+        };
+
+    return b;
+}
+
+void ex_backward(VALUE *v) {
+    assert(v != NULL);
+
+    v->left->grad += v->grad * v->val;
+}
+
 VALUE *relu(VALUE *a) {
     assert(a != NULL);
 
@@ -229,6 +253,27 @@ VALUE *neg(VALUE *a) {
     assert(a != NULL);
 
     return mul(a, constant(-1));
+}
+
+VALUE **softmax(VALUE **x, int size) {
+    assert(x != NULL);
+    assert(size > 0);
+
+    VALUE **out = malloc(sizeof(VALUE *) * size);
+    assert(out != NULL);
+
+    VALUE *sum = constant(0);
+    for (int i = 0; i < size; i++) {
+        sum = add(sum, ex(x[i]));
+    }
+
+    for (int i = 0; i < size; i++) {
+        out[i] = divide(ex(x[i]), sum);
+    }
+
+    free(x);
+
+    return out;
 }
 
 void build_topological_order(VALUE *v, NODE **head) {

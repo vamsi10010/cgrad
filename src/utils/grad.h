@@ -14,9 +14,11 @@ typedef enum operation_enum {
     MUL,
     POW,
     MOD,
+    EXP,
     RELU,
     TANH,
     SIGMOID,
+    SOFTMAX,
     CONST
 } OPERATION; 
 
@@ -48,6 +50,7 @@ VALUE *add(VALUE *, VALUE *);
 VALUE *mul(VALUE *, VALUE *);
 VALUE *power(VALUE *, VALUE *);
 VALUE *mod(VALUE *);
+VALUE *ex(VALUE *);
 VALUE *relu(VALUE *);
 VALUE *tanhyp(VALUE *);
 VALUE *sigmoid(VALUE *);
@@ -55,12 +58,15 @@ VALUE *sub(VALUE *, VALUE *);
 VALUE *divide(VALUE *, VALUE *);
 VALUE *neg(VALUE *);
 
+VALUE **softmax(VALUE **, int);
+
 // Backward Functions
 
 void add_backward(VALUE *);
 void mul_backward(VALUE *);
 void power_backward(VALUE *);
 void mod_backward(VALUE *);
+void ex_backward(VALUE *);
 void relu_backward(VALUE *);
 void tanh_backward(VALUE *);
 void sigmoid_backward(VALUE *);

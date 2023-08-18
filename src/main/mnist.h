@@ -9,6 +9,12 @@
 #include "../nn/ann.h"
 #include "../load/data.h"
 
+#define NUM_LAYERS 3
+#define LEARNING_RATE 0.1
+#define EPOCHS 10
+#define MOM_COEFF 0.9
+#define REG_COEFF 0.1
 
+void train(ANN *);
 
 #endif // __MNIST_H__
