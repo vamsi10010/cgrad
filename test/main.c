@@ -252,6 +252,22 @@ static void test_ann(void **state) {
 
     // CHECK VALGRIND OUTPUT
 }
+
+static void test_exp_log(void **state) {
+    VALUE *a = constant(2);
+
+    VALUE *b = ex(a);
+
+    assert_double_equal(b->val, exp(2), 0.0001);
+
+    VALUE *c = lg(b);
+
+    assert_double_equal(c->val, 2, 0.0001);
+
+    backward(b);
+
+    assert_double_equal(a->grad, exp(2), 0.0001);
+}
     
 
 int main() {
@@ -265,7 +281,8 @@ int main() {
         cmocka_unit_test(test_neuron),
         cmocka_unit_test(test_neuron_descend),
         cmocka_unit_test(test_dataloader),
-        cmocka_unit_test(test_ann)
+        cmocka_unit_test(test_ann),
+        cmocka_unit_test(test_exp_log)
     };
 
     return cmocka_run_group_tests(tests, NULL, NULL);

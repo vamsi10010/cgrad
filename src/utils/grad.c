@@ -159,6 +159,30 @@ void ex_backward(VALUE *v) {
     v->left->grad += v->grad * v->val;
 }
 
+VALUE *lg(VALUE *a) {
+    assert(a != NULL);
+
+    VALUE *b = malloc(sizeof(VALUE));
+    assert(b != NULL);
+
+    *b = (VALUE) {
+        .val = ((a->left->op == EXP) ? a->left->left->val : log(a->val)),
+        .grad = 0,
+        .backward = lg_backward,
+        .op = LOG,
+        .left = a,
+        .right = NULL
+        };
+
+    return b;
+}
+
+void lg_backward(VALUE *v) {
+    assert(v != NULL);
+
+    v->left->grad += v->grad * (1 / v->left->val);
+}
+
 VALUE *relu(VALUE *a) {
     assert(a != NULL);
 

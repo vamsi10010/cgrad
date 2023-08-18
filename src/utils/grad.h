@@ -8,13 +8,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 typedef enum operation_enum {
     ADD,
     MUL,
     POW,
     MOD,
     EXP,
+    LOG,
     RELU,
     TANH,
     SIGMOID,
@@ -51,6 +51,7 @@ VALUE *mul(VALUE *, VALUE *);
 VALUE *power(VALUE *, VALUE *);
 VALUE *mod(VALUE *);
 VALUE *ex(VALUE *);
+VALUE *lg(VALUE *);
 VALUE *relu(VALUE *);
 VALUE *tanhyp(VALUE *);
 VALUE *sigmoid(VALUE *);
@@ -67,6 +68,7 @@ void mul_backward(VALUE *);
 void power_backward(VALUE *);
 void mod_backward(VALUE *);
 void ex_backward(VALUE *);
+void lg_backward(VALUE *);
 void relu_backward(VALUE *);
 void tanh_backward(VALUE *);
 void sigmoid_backward(VALUE *);

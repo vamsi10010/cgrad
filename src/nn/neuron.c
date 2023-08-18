@@ -50,7 +50,9 @@ VALUE *neuron_forward(NEURON *n, VALUE **x, OPERATION activation) {
         case SIGMOID:
             out = sigmoid(out);
             break;
-        case CONST || SOFTMAX:
+        case CONST:
+            break;
+        case SOFTMAX:
             break;
         default:
             assert(false);

@@ -34,7 +34,7 @@ VALUE **layer_forward(LAYER *l, VALUE **x) {
 
     free(x);
 
-    if (l->activation = SOFTMAX) {
+    if (l->activation == SOFTMAX) {
         out = softmax(out, l->size);
     }
 
