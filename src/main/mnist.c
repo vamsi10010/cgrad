@@ -33,23 +33,38 @@ void train(ANN *nn) {
     // shuffle dataset
 
     int *idx = perm(TRAIN_SIZE);
-    int *train_idx = idx;
-    int *val_idx = train_idx + (int) (TRAIN_SIZE * 0.2);
+    int *val_idx = idx + (int) (TRAIN_SIZE * 0.8);
+
+    int num_batches = TRAIN_SIZE / BATCH_SIZE;
 
     // train
 
     for (int i = 0; i < EPOCHS; i++) {
-        for (int j = 0; j < (TRAIN_SIZE / BATCH_SIZE); j++) {
-            // get batch
+        printf("Epoch %2d ", i + 1);
 
-            train_idx += BATCH_SIZE * j;
+        int *train_idx = idx;
 
-            // forward
+        for (int j = 0; j < num_batches; j++) {
+            if (j % 10 == 0) {
+                printf("#");
+                fflush(stdout);
+            }
+
+            // batch loss
 
             VALUE *loss = constant(0);
 
             for (int k = 0; k < BATCH_SIZE; k++) {
+
                 VALUE **x = value_array(train_images[train_idx[k]], PIXELS);
+
+                // normalize
+
+                for (int l = 0; l < PIXELS; l++) {
+                    x[l] = divide(x[l], constant(255));
+                }
+
+                // forward
 
                 x = ann_forward(nn, x);
 
@@ -64,14 +79,55 @@ void train(ANN *nn) {
 
             // regularization
 
-            loss = add(loss, regularization(nn, L2, REG_COEFF / (2.0 * BATCH_SIZE)));
+            // loss = add(loss, regularization(nn, L2, REG_COEFF / (2.0 * BATCH_SIZE)));
 
             // backward
+
+            backward(loss);
+            free_values(&loss);
+
             // descend
+
+            ann_descend(nn, LEARNING_RATE, true);
+
+            zero_grad(nn);
+
+            train_idx += BATCH_SIZE;
         }
+
+        // validation
+
+        VALUE *val_loss = constant(0);
+
+        for (int j = 0; j < TRAIN_SIZE * 0.2; j++) {
+            VALUE **x = value_array(train_images[val_idx[j]], PIXELS);
+
+            // normalize
+
+            for (int k = 0; k < PIXELS; k++) {
+                x[k] = divide(x[k], constant(255));
+            }
+
+            // forward
+
+            x = ann_forward(nn, x);
+
+            // loss
+
+            val_loss = add(val_loss, loss_fn(x, train_labels[val_idx[j]], CROSS_ENTROPY, OUTPUT_SIZE));
+
+            free(x);
+        }
+
+        val_loss = divide(val_loss, constant(TRAIN_SIZE * 0.2));
+
+        // output
+
+        printf("\nValidation Loss: %.5lf\n", val_loss->val);
+        fflush(stdout);
+
+        free_values(&val_loss);
     }
-
-
 
     // frees
 
@@ -80,8 +136,12 @@ void train(ANN *nn) {
 }
 
 int main() {
-    int layer_sizes[NUM_LAYERS] = {100, 100, 10};
+    int layer_sizes[NUM_LAYERS] = {16, 16, 10};
     OPERATION activations[NUM_LAYERS] = {RELU, RELU, SOFTMAX};
 
     ANN *nn = ann(NUM_LAYERS, layer_sizes, activations, PIXELS);
+
+    train(nn);
+
+    free_ann(nn);
 }

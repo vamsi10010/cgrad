@@ -19,7 +19,8 @@ typedef enum operation_enum {
     TANH,
     SIGMOID,
     SOFTMAX,
-    CONST
+    CONST,
+    MAX
 } OPERATION; 
 
 typedef struct param_struct {
@@ -61,6 +62,8 @@ VALUE *neg(VALUE *);
 
 VALUE **softmax(VALUE **, int);
 
+VALUE *max(VALUE *, VALUE *);
+
 // Backward Functions
 
 void add_backward(VALUE *);
@@ -82,6 +85,7 @@ VALUE *parameter(PARAM *);
 void build_topological_order(VALUE *, NODE **);
 NODE *build_node(VALUE *);
 VALUE **value_array(double *, int);
+void argmax(VALUE **, int, VALUE **, int *);
 
 // Graph Functions
 void free_values(VALUE **);

@@ -166,7 +166,7 @@ VALUE *lg(VALUE *a) {
     assert(b != NULL);
 
     *b = (VALUE) {
-        .val = ((a->left->op == EXP) ? a->left->left->val : log(a->val)),
+        .val = log(a->val),
         .grad = 0,
         .backward = lg_backward,
         .op = LOG,
@@ -376,6 +376,40 @@ VALUE **value_array(double *arr, int size) {
     }
 
     return out;
+}
+
+VALUE *max(VALUE *a, VALUE *b) {
+    assert(a != NULL);
+    assert(b != NULL);
+
+    VALUE *c = malloc(sizeof(VALUE));
+    assert(c != NULL);
+
+    *c = (VALUE) {
+        .val = a->val >= b->val ? a->val : b->val,
+        .grad = 0,
+        .backward = NULL,
+        .op = MAX,
+        .left = a,
+        .right = b
+        };
+
+    return c;
+}
+
+void argmax(VALUE **args, int size, VALUE **out, int *idx) {
+    assert(args != NULL);
+    assert(size > 0);
+    assert(out != NULL);
+    assert(idx != NULL);
+
+    *out = args[0];
+    *idx = 0;
+
+    for (int i = 1; i < size; i++) {
+        *out = max(*out, args[i]);
+        if (*out == args[i]) *idx = i;
+    }
 }
 
 

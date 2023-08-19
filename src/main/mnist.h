@@ -11,10 +11,10 @@
 
 #define NUM_LAYERS 3
 #define LEARNING_RATE 0.1
-#define EPOCHS 10
+#define EPOCHS 3
 #define MOM_COEFF 0.9
 #define REG_COEFF 0.1
-#define BATCH_SIZE 64
+#define BATCH_SIZE 32
 #define OUTPUT_SIZE 10
 
 int *perm(int);

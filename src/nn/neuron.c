@@ -21,17 +21,23 @@ NEURON *neuron(int num_inputs) {
     n->weights = malloc(sizeof(VALUE *) * (num_inputs + 1));
     assert(n->weights != NULL);
 
-    for (int i = 0; i < num_inputs + 1; i++) {
+    return n;
+}
+
+void copy_weights(NEURON *n) {
+    assert(n != NULL);
+
+    for (int i = 0; i < n->num_inputs + 1; i++) {
         n->weights[i] = parameter(n->params + i);
     }
-
-    return n;
 }
 
 VALUE *neuron_forward(NEURON *n, VALUE **x, OPERATION activation) {
     assert(n != NULL);
     assert(x != NULL);
     assert(activation == RELU || activation == TANH || activation == SIGMOID || activation == CONST || activation == SOFTMAX);
+
+    copy_weights(n);
 
     VALUE *out = constant(0);
 

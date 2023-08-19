@@ -3,7 +3,7 @@
 LAYER *layer(int num_inputs, int size, OPERATION activation) {
     assert(num_inputs > 0);
     assert(size > 0);
-    assert(activation == RELU || activation == TANH || activation == SIGMOID);
+    assert(activation == RELU || activation == TANH || activation == SIGMOID || activation == CONST || activation == SOFTMAX);
 
     LAYER *l = malloc(sizeof(LAYER));
     assert(l != NULL);

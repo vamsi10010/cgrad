@@ -64,6 +64,7 @@ WARNS := -Wall -Wextra -pedantic # -pedantic warns on language standards
 
 # Flags for compiling
 CFLAGS := -O3 $(STD) $(STACK) $(WARNS)
+# CFLAGS := $(STD) $(STACK) $(WARNS)
 
 # Debug options
 DEBUG := -g3 -DDEBUG=1
@@ -137,6 +138,12 @@ $(LIBDIR)/%.o: $(SRCDIR)/**/%.$(SRCEXT)
 run:
 	@echo -en "$(BROWN)Running $(BINARY): $(END_COLOR)";
 	./$(BINDIR)/$(BINARY)
+
+
+# Rule for running binary with gdb
+gdb:
+	@echo -en "$(BROWN)Running $(BINARY) with gdb: $(END_COLOR)";
+	gdb ./$(BINDIR)/$(BINARY)
 
 
 # Rule for run valgrind tool

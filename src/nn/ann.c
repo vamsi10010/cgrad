@@ -75,7 +75,7 @@ void zero_grad(ANN *a) {
 
 VALUE *loss_fn(VALUE **yhat, double y, LOSS loss, int size) {
     assert(yhat != NULL);
-    assert(y != NULL);
+    assert(size > 0);
 
     VALUE *out = constant(0);
 
@@ -88,7 +88,7 @@ VALUE *loss_fn(VALUE **yhat, double y, LOSS loss, int size) {
         break;
     case CROSS_ENTROPY:
         for (int i = 0; i < size; i++) {
-            out = add(out, mul(constant(i == y), lg(yhat[i])));
+            out = add(out, mul(constant(i == (int) y), lg(yhat[i])));
         }
         out = neg(out);
         break;
