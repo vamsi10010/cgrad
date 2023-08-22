@@ -97,9 +97,16 @@ void train(ANN *nn) {
 
         // validation
 
+        printf("\n\tValidation ");
+
         VALUE *val_loss = constant(0);
 
         for (int j = 0; j < TRAIN_SIZE * 0.2; j++) {
+            if (j % 10 == 0) {
+                printf("#");
+                fflush(stdout);
+            }
+
             VALUE **x = value_array(train_images[val_idx[j]], PIXELS);
 
             // normalize
@@ -123,7 +130,7 @@ void train(ANN *nn) {
 
         // output
 
-        printf("\nValidation Loss: %.5lf\n", val_loss->val);
+        printf("\n\tLoss: %.5lf\n", val_loss->val);
         fflush(stdout);
 
         free_values(&val_loss);
@@ -136,7 +143,7 @@ void train(ANN *nn) {
 }
 
 int main() {
-    int layer_sizes[NUM_LAYERS] = {16, 16, 10};
+    int layer_sizes[NUM_LAYERS] = {3, 3, 10};
     OPERATION activations[NUM_LAYERS] = {RELU, RELU, SOFTMAX};
 
     ANN *nn = ann(NUM_LAYERS, layer_sizes, activations, PIXELS);
