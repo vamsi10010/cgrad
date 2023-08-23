@@ -99,7 +99,7 @@ void train(ANN *nn) {
 
         printf("\n\tValidation ");
 
-        VALUE *val_loss = constant(0);
+        double val_loss = 0;
 
         for (int j = 0; j < TRAIN_SIZE * 0.2; j++) {
             if (j % 10 == 0) {
@@ -107,33 +107,50 @@ void train(ANN *nn) {
                 fflush(stdout);
             }
 
-            VALUE **x = value_array(train_images[val_idx[j]], PIXELS);
+            double *x = malloc(sizeof(double) * PIXELS);
+            assert(x != NULL);
+
+            x = memcpy(x, train_images[val_idx[j]], sizeof(double) * PIXELS);
 
             // normalize
 
             for (int k = 0; k < PIXELS; k++) {
-                x[k] = divide(x[k], constant(255));
+                x[k] /= 255.0;
             }
 
             // forward
 
-            x = ann_forward(nn, x);
+            x = ann_nograd_forward(nn, x);
 
-            // loss
-
-            val_loss = add(val_loss, loss_fn(x, train_labels[val_idx[j]], CROSS_ENTROPY, OUTPUT_SIZE));
+            val_loss += loss_fn_nograd(x, train_labels[val_idx[j]], CROSS_ENTROPY, OUTPUT_SIZE);
 
             free(x);
+
+            // VALUE **x = value_array(train_images[val_idx[j]], PIXELS);
+
+            // // normalize
+
+            // for (int k = 0; k < PIXELS; k++) {
+            //     x[k] = divide(x[k], constant(255));
+            // }
+
+            // // forward
+
+            // x = ann_forward(nn, x);
+
+            // // loss
+
+            // val_loss = add(val_loss, loss_fn(x, train_labels[val_idx[j]], CROSS_ENTROPY, OUTPUT_SIZE));
+
+            // free(x);
         }
 
-        val_loss = divide(val_loss, constant(TRAIN_SIZE * 0.2));
+        val_loss /= TRAIN_SIZE * 0.2;
 
         // output
 
-        printf("\n\tLoss: %.5lf\n", val_loss->val);
+        printf("\n\tLoss: %.5lf\n", val_loss);
         fflush(stdout);
-
-        free_values(&val_loss);
     }
 
     // frees

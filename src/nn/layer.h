@@ -17,4 +17,6 @@ void layer_descend(LAYER *, double, bool);
 void free_layer(LAYER *);
 void layer_zero_grad(LAYER *);
 
+double *layer_nograd_forward(LAYER *, double *);
+
 #endif // __LAYER_H__

@@ -23,4 +23,6 @@ void free_neuron(NEURON *);
 void neuron_zero_grad(NEURON *);
 void copy_weights(NEURON *);
 
+double neuron_nograd_forward(NEURON *, double *, OPERATION);
+
 #endif // __NEURON_H__

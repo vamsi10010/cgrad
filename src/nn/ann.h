@@ -22,4 +22,7 @@ void free_ann(ANN *);
 void zero_grad(ANN *);
 VALUE *loss_fn(VALUE **, double, LOSS, int);
 
+double *ann_nograd_forward(ANN *, double *);
+double loss_fn_nograd(double *, double, LOSS, int);
+
 #endif // __ANN_H__

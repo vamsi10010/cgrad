@@ -31,6 +31,17 @@ VALUE **ann_forward(ANN *a, VALUE **x) {
     return x;
 }
 
+double *ann_nograd_forward(ANN *a, double *x) {
+    assert(a != NULL);
+    assert(x != NULL);
+
+    for (int i = 0; i < a->n_layers; i++) {
+        x = layer_nograd_forward(a->layers[i], x);
+    }
+
+    return x;
+}
+
 VALUE *regularization(ANN *a, REG reg, double c) {
     assert(a != NULL);
     assert(c >= 0);
@@ -94,6 +105,34 @@ VALUE *loss_fn(VALUE **yhat, double y, LOSS loss, int size) {
         break;
     default:
         assert(false);
+    }
+
+    return out;
+}
+
+double loss_fn_nograd(double *yhat, double y, LOSS loss, int size) {
+    assert(yhat != NULL);
+    assert(size > 0);
+
+    double out = 0;
+
+    switch (loss)
+    {
+    case MSE:
+        for (int i = 0; i < size; i++) {
+            out += pow(yhat[i] - (i == (int) y), 2);
+        }
+        out /= size;
+        break;
+    case CROSS_ENTROPY:
+        for (int i = 0; i < size; i++) {
+            out += (i == (int) y) * log(yhat[i]);
+        }
+        out *= -1;
+        break;
+    default:
+        assert(false);
+        break;
     }
 
     return out;

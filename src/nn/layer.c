@@ -3,7 +3,8 @@
 LAYER *layer(int num_inputs, int size, OPERATION activation) {
     assert(num_inputs > 0);
     assert(size > 0);
-    assert(activation == RELU || activation == TANH || activation == SIGMOID || activation == CONST || activation == SOFTMAX);
+    assert(activation == RELU || activation == TANH || activation == SIGMOID ||
+        activation == CONST || activation == SOFTMAX);
 
     LAYER *l = malloc(sizeof(LAYER));
     assert(l != NULL);
@@ -36,6 +37,35 @@ VALUE **layer_forward(LAYER *l, VALUE **x) {
 
     if (l->activation == SOFTMAX) {
         out = softmax(out, l->size);
+    }
+
+    return out;
+}
+
+double *layer_nograd_forward(LAYER *l, double *x) {
+    assert(l != NULL);
+    assert(x != NULL);
+
+    double *out = malloc(sizeof(double) * l->size);
+    assert(out != NULL);
+
+    for (int i = 0; i < l->size; i++) {
+        out[i] = neuron_nograd_forward(l->neurons[i], x, l->activation);
+    }
+
+    free(x);
+
+    if (l->activation == SOFTMAX) {
+        /* softmax */
+        
+        double denom = 0.0;
+        for (int i = 0; i < l->size; i++) {
+            denom += exp(out[i]);
+        }
+
+        for (int i = 0; i < l->size; i++) {
+            out[i] = exp(out[i]) / denom;
+        }
     }
 
     return out;

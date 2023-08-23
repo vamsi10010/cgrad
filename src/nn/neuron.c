@@ -35,7 +35,8 @@ void copy_weights(NEURON *n) {
 VALUE *neuron_forward(NEURON *n, VALUE **x, OPERATION activation) {
     assert(n != NULL);
     assert(x != NULL);
-    assert(activation == RELU || activation == TANH || activation == SIGMOID || activation == CONST || activation == SOFTMAX);
+    assert(activation == RELU || activation == TANH || activation == SIGMOID ||
+        activation == CONST || activation == SOFTMAX);
 
     copy_weights(n);
 
@@ -55,6 +56,40 @@ VALUE *neuron_forward(NEURON *n, VALUE **x, OPERATION activation) {
             break;
         case SIGMOID:
             out = sigmoid(out);
+            break;
+        case CONST:
+            break;
+        case SOFTMAX:
+            break;
+        default:
+            assert(false);
+    }
+
+    return out;
+}
+
+double neuron_nograd_forward(NEURON *n, double *x, OPERATION activation) {
+    assert(n != NULL);
+    assert(x != NULL);
+    assert(activation == RELU || activation == TANH || activation == SIGMOID ||
+        activation == CONST || activation == SOFTMAX);
+
+    double out = 0.0;
+
+    for (int i = 0; i < n->num_inputs; i++) {
+        out += n->params[i + 1].val * x[i];
+    }
+    out += n->params[0].val;
+
+    switch (activation) {
+        case RELU:
+            out = out * (out > 0);
+            break;
+        case TANH:
+            out = tanh(out);
+            break;
+        case SIGMOID:
+            out /= (1 + fabs(out));
             break;
         case CONST:
             break;
@@ -130,3 +165,4 @@ void neuron_zero_grad(NEURON *n) {
         n->params[i].grad = 0;
     }
 }
+
