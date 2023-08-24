@@ -102,10 +102,10 @@ void train(ANN *nn) {
         double val_loss = 0;
 
         for (int j = 0; j < TRAIN_SIZE * 0.2; j++) {
-            if (j % 10 == 0) {
-                printf("#");
-                fflush(stdout);
-            }
+            // if (j % 10 == 0) {
+            //     printf("#");
+            //     fflush(stdout);
+            // }
 
             double *x = malloc(sizeof(double) * PIXELS);
             assert(x != NULL);
@@ -125,24 +125,6 @@ void train(ANN *nn) {
             val_loss += loss_fn_nograd(x, train_labels[val_idx[j]], CROSS_ENTROPY, OUTPUT_SIZE);
 
             free(x);
-
-            // VALUE **x = value_array(train_images[val_idx[j]], PIXELS);
-
-            // // normalize
-
-            // for (int k = 0; k < PIXELS; k++) {
-            //     x[k] = divide(x[k], constant(255));
-            // }
-
-            // // forward
-
-            // x = ann_forward(nn, x);
-
-            // // loss
-
-            // val_loss = add(val_loss, loss_fn(x, train_labels[val_idx[j]], CROSS_ENTROPY, OUTPUT_SIZE));
-
-            // free(x);
         }
 
         val_loss /= TRAIN_SIZE * 0.2;
@@ -160,7 +142,7 @@ void train(ANN *nn) {
 }
 
 int main() {
-    int layer_sizes[NUM_LAYERS] = {3, 3, 10};
+    int layer_sizes[NUM_LAYERS] = {16, 16, 10};
     OPERATION activations[NUM_LAYERS] = {RELU, RELU, SOFTMAX};
 
     ANN *nn = ann(NUM_LAYERS, layer_sizes, activations, PIXELS);
