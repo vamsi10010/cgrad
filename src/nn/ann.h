@@ -24,5 +24,6 @@ VALUE *loss_fn(VALUE **, double, LOSS, int);
 
 double *ann_nograd_forward(ANN *, double *);
 double loss_fn_nograd(double *, double, LOSS, int);
+int predict(ANN *, double *, int);
 
 #endif // __ANN_H__

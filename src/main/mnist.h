@@ -19,5 +19,6 @@
 
 int *perm(int);
 void train(ANN *);
+void test(ANN *);
 
 #endif // __MNIST_H__

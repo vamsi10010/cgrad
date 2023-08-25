@@ -102,11 +102,6 @@ void train(ANN *nn) {
         double val_loss = 0;
 
         for (int j = 0; j < TRAIN_SIZE * 0.2; j++) {
-            // if (j % 10 == 0) {
-            //     printf("#");
-            //     fflush(stdout);
-            // }
-
             double *x = malloc(sizeof(double) * PIXELS);
             assert(x != NULL);
 
@@ -141,6 +136,52 @@ void train(ANN *nn) {
     free(idx);
 }
 
+void test(ANN *nn) {
+    assert(nn != NULL);
+
+    // load testing data
+
+    double **test_images;
+    int *test_labels;
+
+    read_csv(TEST_IMAGES, &test_images, &test_labels, TEST_SIZE);
+
+    // test
+
+    printf("Testing\n");
+
+    int correct = 0;
+
+    for (int i = 0; i < TEST_SIZE; i++) {
+        double *x = malloc(sizeof(double) * PIXELS);
+        assert(x != NULL);
+
+        x = memcpy(x, test_images[i], sizeof(double) * PIXELS);
+
+        // normalize
+
+        for (int j = 0; j < PIXELS; j++) {
+            x[j] /= 255.0;
+        }
+
+        // forward
+
+        int pred = predict(nn, x, OUTPUT_SIZE);
+
+        correct += (pred == test_labels[i]);
+
+        free(x);
+    }
+
+    // output
+
+    printf("Accuracy: %.2lf%%\n", (100.0 * correct) / TEST_SIZE);
+
+    // frees
+
+    free_images(test_images, test_labels, TEST_SIZE);
+}
+
 int main() {
     int layer_sizes[NUM_LAYERS] = {16, 16, 10};
     OPERATION activations[NUM_LAYERS] = {RELU, RELU, SOFTMAX};
@@ -148,6 +189,8 @@ int main() {
     ANN *nn = ann(NUM_LAYERS, layer_sizes, activations, PIXELS);
 
     train(nn);
+
+    test(nn);
 
     free_ann(nn);
 }

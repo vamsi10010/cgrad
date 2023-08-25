@@ -138,5 +138,23 @@ double loss_fn_nograd(double *yhat, double y, LOSS loss, int size) {
     return out;
 }
 
+int predict(ANN *n, double *x, int classes) {
+    assert(n != NULL);
+    assert(x != NULL);
+    assert(classes > 0);
+
+    x = ann_nograd_forward(n, x);
+
+    int max_idx = 0;
+
+    for (int i = 1; i < classes; i++) {
+        if (x[i] > x[max_idx]) {
+            max_idx = i;
+        }
+    }
+
+    return max_idx;
+}
+
 
 // Load and save functions
