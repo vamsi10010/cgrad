@@ -119,7 +119,7 @@ void train(ANN *nn) {
 
             val_loss += loss_fn_nograd(x, train_labels[val_idx[j]], CROSS_ENTROPY, OUTPUT_SIZE);
 
-            free(x);
+            // free(x);
         }
 
         val_loss /= TRAIN_SIZE * 0.2;
@@ -170,12 +170,13 @@ void test(ANN *nn) {
 
         correct += (pred == test_labels[i]);
 
-        free(x);
+        // free(x);
     }
 
     // output
 
     printf("Accuracy: %.2lf%%\n", (100.0 * correct) / TEST_SIZE);
+    fflush(stdout);
 
     // frees
 
@@ -183,7 +184,7 @@ void test(ANN *nn) {
 }
 
 int main() {
-    int layer_sizes[NUM_LAYERS] = {16, 16, 10};
+    int layer_sizes[NUM_LAYERS] = {36, 18, 10};
     OPERATION activations[NUM_LAYERS] = {RELU, RELU, SOFTMAX};
 
     ANN *nn = ann(NUM_LAYERS, layer_sizes, activations, PIXELS);
