@@ -1,3 +1,12 @@
+/** @file mnist.c
+ *  @brief Trains and tests a feedforward neural network on the MNIST dataset.
+ *  
+ *  This contains the implementation for the functions used to train and test a
+ *  feedforward neural network on the MNIST dataset.
+ * 
+ *  @author Vamsi Deeduvanu (vamsi10010)
+ */
+
 #include "mnist.h"
 
 int *perm(int n) {

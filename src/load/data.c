@@ -1,3 +1,13 @@
+/** @file data.c
+ *  @brief Functions to load and free data from the MNIST dataset.
+ *
+ *  This contains the implementations for the functions used to read and 
+ *  free data from the MNIST dataset in CSV format. It is used by the 
+ *  neural network in `mnist.c`.
+ *
+ *  @author Vamsi Deeduvanu (vamsi10010)
+ */
+
 #include "data.h"
 
 void print_image(double *image, int label) {

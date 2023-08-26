@@ -1,3 +1,12 @@
+/** @file grad.c
+ *  @brief Functions for backpropagation
+ * 
+ *  This contains the function implementations to perform
+ *  bacpropagation on an equation. 
+ *
+ *  @author Vamsi Deeduvanu (vamsi10010)
+ */
+
 #include "grad.h"   
 
 VALUE *constant(double a) {

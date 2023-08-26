@@ -1,3 +1,12 @@
+/** @file mnist.h
+ *  @brief Trains and tests a feedforward neural network on the MNIST dataset.
+ *
+ *  This contains the prototypes for the functions used to train and test a
+ *  feedforward neural network on the MNIST dataset. 
+ *
+ *  @author Vamsi Deeduvanu (vamsi10010)
+ */
+
 #ifndef __MNIST_H__
 #define __MNIST_H__
 
@@ -17,8 +26,23 @@
 #define BATCH_SIZE 32
 #define OUTPUT_SIZE 10
 
-int *perm(int);
-void train(ANN *);
+/**
+ *  @brief Generates a random permutation of the integers from 0 to n - 1.
+ *  @param n The number of integers to permute.
+ *  @return A pointer to the array of integers.
+ */
+int *perm(int n);
+
+/**
+ *  @brief Trains the neural network on the MNIST dataset.
+ *  @param nn The neural network.
+ */
+void train(ANN *nn);
+
+/**
+ *  @brief Tests the neural network on the MNIST dataset.
+ *  @param nn The neural network.
+ */
 void test(ANN *);
 
 #endif // __MNIST_H__

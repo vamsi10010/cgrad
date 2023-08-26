@@ -5,7 +5,9 @@
         "*.tcc": "c",
         "layer.h": "c",
         "neuron.h": "c",
-        "grad.h": "c"
+        "grad.h": "c",
+        "mnist.h": "c",
+        "complex.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

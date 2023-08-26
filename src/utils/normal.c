@@ -1,13 +1,17 @@
+/** @file normal.c
+ *  @brief Function for generating normally distributed random numbers.
+ * 
+ *  This contains function prototype for
+ *  generating normally distributed random numbers.
+ *
+ *  @author Vamsi Deeduvanu (vamsi10010)
+ */
+
 # include "normal.h"
 
 #define PI (3.141592653589793)
 
-double normal(double mu, double sigma) 
-/*
-  Returns a normally distributed random value with mean mu and standard 
-  deviation sigma. Uses Box-Muller transform.
-*/
-{
+double normal(double mu, double sigma) {
   double r1 = 0.0;
   double r2 = 0.0;
   double x;

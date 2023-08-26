@@ -1,3 +1,12 @@
+/** @file neuron.c
+ *  @brief Function implementiations for neuron.h.
+ * 
+ *  This contains function implementations for
+ *  creating neurons and performing operations on them.
+ *
+ *  @author Vamsi Deeduvanu (vamsi10010)
+ */
+
 #include "neuron.h" 
 
 NEURON *neuron(int num_inputs) {
