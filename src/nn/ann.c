@@ -1,3 +1,12 @@
+/** @file ann.c
+ *  @brief Feedforwar neural network implementation.
+ *  
+ *  This contains the implementation for the functions used to create
+ *  a feedforward neural network.
+ * 
+ *  @author Vamsi Deeduvanu (vamsi10010)
+ */
+
 #include "ann.h"
 
 ANN *ann(int num_layers, int *layer_sizes, OPERATION *activations, int num_inputs) {
@@ -155,6 +164,3 @@ int predict(ANN *n, double *x, int classes) {
 
     return max_idx;
 }
-
-
-// Load and save functions

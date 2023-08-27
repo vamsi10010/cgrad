@@ -1,3 +1,12 @@
+/** @file layer.c
+ *  @brief Implementation for a layer of neurons in a feedforward neural network.
+ *  
+ *  This contains the implementation for the functions used to create and manipulate
+ *  a layer of neurons in a feedforward neural network.
+ * 
+ *  @author Vamsi Deeduvanu (vamsi10010)
+ */
+
 #include "layer.h"
 
 LAYER *layer(int num_inputs, int size, OPERATION activation) {
