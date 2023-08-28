@@ -1,0 +1,184 @@
+\doxysection{nn/neuron.c File Reference}
+\hypertarget{neuron_8c}{}\label{neuron_8c}\index{nn/neuron.c@{nn/neuron.c}}
+
+
+Function implementiations for \doxylink{neuron_8h}{neuron.\+h}.  
+
+
+{\ttfamily \#include "{}neuron.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{neuron_8c_a3a88e09bcb65330e1186670316d39548}{neuron}} (int num\+\_\+inputs)
+\begin{DoxyCompactList}\small\item\em Creates a neuron with the given number of inputs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{neuron_8c_a04675c5fb6b6aeeefa8be2f0cf5cf1c8}{copy\+\_\+weights}} (\mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*}n)
+\begin{DoxyCompactList}\small\item\em Copies the weights and biases into value structs to construct the computational graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{neuron_8c_a82b7e208216d25df82d07fb125d86c02}{neuron\+\_\+forward}} (\mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*}n, \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}x, \mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}} activation)
+\begin{DoxyCompactList}\small\item\em Performs a forward pass on the neuron without building a computational graph. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{neuron_8c_a27cd2f0c74cab89a03bea65680177da8}{neuron\+\_\+nograd\+\_\+forward}} (\mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*}n, double \texorpdfstring{$\ast$}{*}x, \mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}} activation)
+\begin{DoxyCompactList}\small\item\em Performs a forward pass on the neuron without building a computational graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{neuron_8c_afa09ed4313d64550bbcbf4da379a4ea9}{neuron\+\_\+regularization}} (\mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*}n, \mbox{\hyperlink{neuron_8h_ae0f774b9119326109e149ba5e323dca0}{REG}} reg, double c)
+\begin{DoxyCompactList}\small\item\em Calculates the regularization term for the neuron. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{neuron_8c_afad7963f9e81a0d70558195d6e906eaa}{neuron\+\_\+descend}} (\mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*}n, double lr, bool momentum)
+\begin{DoxyCompactList}\small\item\em Performs a gradient descent step on the neuron. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{neuron_8c_ae276847476353192b80f14e5630f45ec}{free\+\_\+neuron}} (\mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*}n)
+\begin{DoxyCompactList}\small\item\em Frees the memory allocated to the neuron. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{neuron_8c_ab65bececde48c0d50ba9b164c027591f}{neuron\+\_\+zero\+\_\+grad}} (\mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*}n)
+\begin{DoxyCompactList}\small\item\em Zeroes out the gradients of the neuron. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Function implementiations for \doxylink{neuron_8h}{neuron.\+h}. 
+
+This contains function implementations for creating neurons and performing operations on them.
+
+\begin{DoxyAuthor}{Author}
+Vamsi Deeduvanu (vamsi10010) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{neuron_8c_a04675c5fb6b6aeeefa8be2f0cf5cf1c8}\label{neuron_8c_a04675c5fb6b6aeeefa8be2f0cf5cf1c8} 
+\index{neuron.c@{neuron.c}!copy\_weights@{copy\_weights}}
+\index{copy\_weights@{copy\_weights}!neuron.c@{neuron.c}}
+\doxysubsubsection{\texorpdfstring{copy\_weights()}{copy\_weights()}}
+{\footnotesize\ttfamily void copy\+\_\+weights (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*}}]{n }\end{DoxyParamCaption})}
+
+
+
+Copies the weights and biases into value structs to construct the computational graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The neuron. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{neuron_8c_ae276847476353192b80f14e5630f45ec}\label{neuron_8c_ae276847476353192b80f14e5630f45ec} 
+\index{neuron.c@{neuron.c}!free\_neuron@{free\_neuron}}
+\index{free\_neuron@{free\_neuron}!neuron.c@{neuron.c}}
+\doxysubsubsection{\texorpdfstring{free\_neuron()}{free\_neuron()}}
+{\footnotesize\ttfamily void free\+\_\+neuron (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*}}]{n }\end{DoxyParamCaption})}
+
+
+
+Frees the memory allocated to the neuron. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The neuron. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{neuron_8c_a3a88e09bcb65330e1186670316d39548}\label{neuron_8c_a3a88e09bcb65330e1186670316d39548} 
+\index{neuron.c@{neuron.c}!neuron@{neuron}}
+\index{neuron@{neuron}!neuron.c@{neuron.c}}
+\doxysubsubsection{\texorpdfstring{neuron()}{neuron()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*} neuron (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+inputs }\end{DoxyParamCaption})}
+
+
+
+Creates a neuron with the given number of inputs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+inputs} & The number of inputs to the neuron. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the neuron. 
+\end{DoxyReturn}
+\Hypertarget{neuron_8c_afad7963f9e81a0d70558195d6e906eaa}\label{neuron_8c_afad7963f9e81a0d70558195d6e906eaa} 
+\index{neuron.c@{neuron.c}!neuron\_descend@{neuron\_descend}}
+\index{neuron\_descend@{neuron\_descend}!neuron.c@{neuron.c}}
+\doxysubsubsection{\texorpdfstring{neuron\_descend()}{neuron\_descend()}}
+{\footnotesize\ttfamily void neuron\+\_\+descend (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*}}]{n,  }\item[{double}]{lr,  }\item[{bool}]{momentum }\end{DoxyParamCaption})}
+
+
+
+Performs a gradient descent step on the neuron. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The neuron. \\
+\hline
+{\em lr} & The learning rate. \\
+\hline
+{\em momentum} & Whether to use momentum in gradient descent. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{neuron_8c_a82b7e208216d25df82d07fb125d86c02}\label{neuron_8c_a82b7e208216d25df82d07fb125d86c02} 
+\index{neuron.c@{neuron.c}!neuron\_forward@{neuron\_forward}}
+\index{neuron\_forward@{neuron\_forward}!neuron.c@{neuron.c}}
+\doxysubsubsection{\texorpdfstring{neuron\_forward()}{neuron\_forward()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} neuron\+\_\+forward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*}}]{n,  }\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{x,  }\item[{\mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}}}]{activation }\end{DoxyParamCaption})}
+
+
+
+Performs a forward pass on the neuron without building a computational graph. 
+
+Performs a forward pass on the neuron.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The neuron. \\
+\hline
+{\em x} & The inputs to the neuron. \\
+\hline
+{\em activation} & The activation function to use. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{neuron_8c_a27cd2f0c74cab89a03bea65680177da8}\label{neuron_8c_a27cd2f0c74cab89a03bea65680177da8} 
+\index{neuron.c@{neuron.c}!neuron\_nograd\_forward@{neuron\_nograd\_forward}}
+\index{neuron\_nograd\_forward@{neuron\_nograd\_forward}!neuron.c@{neuron.c}}
+\doxysubsubsection{\texorpdfstring{neuron\_nograd\_forward()}{neuron\_nograd\_forward()}}
+{\footnotesize\ttfamily double neuron\+\_\+nograd\+\_\+forward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*}}]{n,  }\item[{double \texorpdfstring{$\ast$}{*}}]{x,  }\item[{\mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}}}]{activation }\end{DoxyParamCaption})}
+
+
+
+Performs a forward pass on the neuron without building a computational graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The neuron. \\
+\hline
+{\em x} & The inputs to the neuron. \\
+\hline
+{\em activation} & The activation function to use. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the neuron. 
+\end{DoxyReturn}
+\Hypertarget{neuron_8c_afa09ed4313d64550bbcbf4da379a4ea9}\label{neuron_8c_afa09ed4313d64550bbcbf4da379a4ea9} 
+\index{neuron.c@{neuron.c}!neuron\_regularization@{neuron\_regularization}}
+\index{neuron\_regularization@{neuron\_regularization}!neuron.c@{neuron.c}}
+\doxysubsubsection{\texorpdfstring{neuron\_regularization()}{neuron\_regularization()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} neuron\+\_\+regularization (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*}}]{n,  }\item[{\mbox{\hyperlink{neuron_8h_ae0f774b9119326109e149ba5e323dca0}{REG}}}]{reg,  }\item[{double}]{c }\end{DoxyParamCaption})}
+
+
+
+Calculates the regularization term for the neuron. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The neuron. \\
+\hline
+{\em reg} & The regularization technique to use. \\
+\hline
+{\em c} & The regularization coefficient. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{neuron_8c_ab65bececde48c0d50ba9b164c027591f}\label{neuron_8c_ab65bececde48c0d50ba9b164c027591f} 
+\index{neuron.c@{neuron.c}!neuron\_zero\_grad@{neuron\_zero\_grad}}
+\index{neuron\_zero\_grad@{neuron\_zero\_grad}!neuron.c@{neuron.c}}
+\doxysubsubsection{\texorpdfstring{neuron\_zero\_grad()}{neuron\_zero\_grad()}}
+{\footnotesize\ttfamily void neuron\+\_\+zero\+\_\+grad (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}} \texorpdfstring{$\ast$}{*}}]{n }\end{DoxyParamCaption})}
+
+
+
+Zeroes out the gradients of the neuron. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The neuron. \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,404 @@
+\begin{theindex}
+
+  \item {add}
+    \subitem {grad.c}, \hyperpage{44}
+    \subitem {grad.h}, \hyperpage{55}
+  \item {add\_backward}
+    \subitem {grad.c}, \hyperpage{44}
+    \subitem {grad.h}, \hyperpage{56}
+  \item {ann}
+    \subitem {ann.c}, \hyperpage{18}
+    \subitem {ann.h}, \hyperpage{22}
+  \item {ann.c}
+    \subitem {ann}, \hyperpage{18}
+    \subitem {ann\_descend}, \hyperpage{18}
+    \subitem {ann\_forward}, \hyperpage{18}
+    \subitem {ann\_nograd\_forward}, \hyperpage{19}
+    \subitem {free\_ann}, \hyperpage{19}
+    \subitem {loss\_fn}, \hyperpage{19}
+    \subitem {loss\_fn\_nograd}, \hyperpage{20}
+    \subitem {predict}, \hyperpage{20}
+    \subitem {regularization}, \hyperpage{20}
+    \subitem {zero\_grad}, \hyperpage{21}
+  \item {ann.h}
+    \subitem {ann}, \hyperpage{22}
+    \subitem {ann\_descend}, \hyperpage{23}
+    \subitem {ann\_forward}, \hyperpage{23}
+    \subitem {ann\_nograd\_forward}, \hyperpage{23}
+    \subitem {free\_ann}, \hyperpage{24}
+    \subitem {loss\_fn}, \hyperpage{24}
+    \subitem {loss\_fn\_nograd}, \hyperpage{24}
+    \subitem {predict}, \hyperpage{25}
+    \subitem {regularization}, \hyperpage{25}
+    \subitem {zero\_grad}, \hyperpage{25}
+  \item {ann\_descend}
+    \subitem {ann.c}, \hyperpage{18}
+    \subitem {ann.h}, \hyperpage{23}
+  \item {ann\_forward}
+    \subitem {ann.c}, \hyperpage{18}
+    \subitem {ann.h}, \hyperpage{23}
+  \item {ann\_nograd\_forward}
+    \subitem {ann.c}, \hyperpage{19}
+    \subitem {ann.h}, \hyperpage{23}
+  \item {ann\_struct}, \hyperpage{5}
+  \item {argmax}
+    \subitem {grad.c}, \hyperpage{45}
+    \subitem {grad.h}, \hyperpage{56}
+
+  \indexspace
+
+  \item {backward}
+    \subitem {grad.c}, \hyperpage{45}
+    \subitem {grad.h}, \hyperpage{56}
+  \item {build\_node}
+    \subitem {grad.h}, \hyperpage{56}
+  \item {build\_topological\_order}
+    \subitem {grad.c}, \hyperpage{45}
+    \subitem {grad.h}, \hyperpage{57}
+
+  \indexspace
+
+  \item {constant}
+    \subitem {grad.c}, \hyperpage{46}
+    \subitem {grad.h}, \hyperpage{57}
+  \item {copy\_weights}
+    \subitem {neuron.c}, \hyperpage{35}
+    \subitem {neuron.h}, \hyperpage{39}
+
+  \indexspace
+
+  \item {data.c}
+    \subitem {free\_images}, \hyperpage{9}
+    \subitem {print\_image}, \hyperpage{10}
+    \subitem {read\_csv}, \hyperpage{10}
+    \subitem {read\_image}, \hyperpage{10}
+  \item {data.h}
+    \subitem {free\_images}, \hyperpage{12}
+    \subitem {print\_image}, \hyperpage{12}
+    \subitem {read\_csv}, \hyperpage{12}
+    \subitem {read\_image}, \hyperpage{13}
+  \item {divide}
+    \subitem {grad.c}, \hyperpage{46}
+    \subitem {grad.h}, \hyperpage{57}
+
+  \indexspace
+
+  \item {ex}
+    \subitem {grad.c}, \hyperpage{46}
+    \subitem {grad.h}, \hyperpage{59}
+  \item {ex\_backward}
+    \subitem {grad.c}, \hyperpage{46}
+    \subitem {grad.h}, \hyperpage{59}
+
+  \indexspace
+
+  \item {free\_ann}
+    \subitem {ann.c}, \hyperpage{19}
+    \subitem {ann.h}, \hyperpage{24}
+  \item {free\_images}
+    \subitem {data.c}, \hyperpage{9}
+    \subitem {data.h}, \hyperpage{12}
+  \item {free\_layer}
+    \subitem {layer.c}, \hyperpage{27}
+    \subitem {layer.h}, \hyperpage{30}
+  \item {free\_neuron}
+    \subitem {neuron.c}, \hyperpage{35}
+    \subitem {neuron.h}, \hyperpage{39}
+  \item {free\_values}
+    \subitem {grad.c}, \hyperpage{47}
+    \subitem {grad.h}, \hyperpage{59}
+
+  \indexspace
+
+  \item {grad.c}
+    \subitem {add}, \hyperpage{44}
+    \subitem {add\_backward}, \hyperpage{44}
+    \subitem {argmax}, \hyperpage{45}
+    \subitem {backward}, \hyperpage{45}
+    \subitem {build\_topological\_order}, \hyperpage{45}
+    \subitem {constant}, \hyperpage{46}
+    \subitem {divide}, \hyperpage{46}
+    \subitem {ex}, \hyperpage{46}
+    \subitem {ex\_backward}, \hyperpage{46}
+    \subitem {free\_values}, \hyperpage{47}
+    \subitem {lg}, \hyperpage{47}
+    \subitem {lg\_backward}, \hyperpage{47}
+    \subitem {max}, \hyperpage{48}
+    \subitem {mod}, \hyperpage{48}
+    \subitem {mod\_backward}, \hyperpage{48}
+    \subitem {mul}, \hyperpage{48}
+    \subitem {mul\_backward}, \hyperpage{49}
+    \subitem {neg}, \hyperpage{49}
+    \subitem {parameter}, \hyperpage{49}
+    \subitem {power}, \hyperpage{50}
+    \subitem {power\_backward}, \hyperpage{50}
+    \subitem {relu}, \hyperpage{50}
+    \subitem {relu\_backward}, \hyperpage{50}
+    \subitem {sigmoid}, \hyperpage{51}
+    \subitem {sigmoid\_backward}, \hyperpage{51}
+    \subitem {softmax}, \hyperpage{51}
+    \subitem {sub}, \hyperpage{52}
+    \subitem {tanh\_backward}, \hyperpage{52}
+    \subitem {tanhyp}, \hyperpage{52}
+    \subitem {value\_array}, \hyperpage{52}
+  \item {grad.h}
+    \subitem {add}, \hyperpage{55}
+    \subitem {add\_backward}, \hyperpage{56}
+    \subitem {argmax}, \hyperpage{56}
+    \subitem {backward}, \hyperpage{56}
+    \subitem {build\_node}, \hyperpage{56}
+    \subitem {build\_topological\_order}, \hyperpage{57}
+    \subitem {constant}, \hyperpage{57}
+    \subitem {divide}, \hyperpage{57}
+    \subitem {ex}, \hyperpage{59}
+    \subitem {ex\_backward}, \hyperpage{59}
+    \subitem {free\_values}, \hyperpage{59}
+    \subitem {lg}, \hyperpage{59}
+    \subitem {lg\_backward}, \hyperpage{60}
+    \subitem {max}, \hyperpage{60}
+    \subitem {mod}, \hyperpage{60}
+    \subitem {mod\_backward}, \hyperpage{61}
+    \subitem {mul}, \hyperpage{61}
+    \subitem {mul\_backward}, \hyperpage{61}
+    \subitem {neg}, \hyperpage{62}
+    \subitem {parameter}, \hyperpage{62}
+    \subitem {power}, \hyperpage{62}
+    \subitem {power\_backward}, \hyperpage{62}
+    \subitem {relu}, \hyperpage{63}
+    \subitem {relu\_backward}, \hyperpage{63}
+    \subitem {sigmoid}, \hyperpage{63}
+    \subitem {sigmoid\_backward}, \hyperpage{64}
+    \subitem {softmax}, \hyperpage{64}
+    \subitem {sub}, \hyperpage{64}
+    \subitem {tanh\_backward}, \hyperpage{65}
+    \subitem {tanhyp}, \hyperpage{65}
+    \subitem {value\_array}, \hyperpage{65}
+
+  \indexspace
+
+  \item {layer}
+    \subitem {layer.c}, \hyperpage{27}
+    \subitem {layer.h}, \hyperpage{30}
+  \item {layer.c}
+    \subitem {free\_layer}, \hyperpage{27}
+    \subitem {layer}, \hyperpage{27}
+    \subitem {layer\_descend}, \hyperpage{27}
+    \subitem {layer\_forward}, \hyperpage{28}
+    \subitem {layer\_nograd\_forward}, \hyperpage{28}
+    \subitem {layer\_regularization}, \hyperpage{28}
+    \subitem {layer\_zero\_grad}, \hyperpage{29}
+  \item {layer.h}
+    \subitem {free\_layer}, \hyperpage{30}
+    \subitem {layer}, \hyperpage{30}
+    \subitem {layer\_descend}, \hyperpage{31}
+    \subitem {layer\_forward}, \hyperpage{31}
+    \subitem {layer\_nograd\_forward}, \hyperpage{31}
+    \subitem {layer\_regularization}, \hyperpage{33}
+    \subitem {layer\_zero\_grad}, \hyperpage{33}
+  \item {layer\_descend}
+    \subitem {layer.c}, \hyperpage{27}
+    \subitem {layer.h}, \hyperpage{31}
+  \item {layer\_forward}
+    \subitem {layer.c}, \hyperpage{28}
+    \subitem {layer.h}, \hyperpage{31}
+  \item {layer\_nograd\_forward}
+    \subitem {layer.c}, \hyperpage{28}
+    \subitem {layer.h}, \hyperpage{31}
+  \item {layer\_regularization}
+    \subitem {layer.c}, \hyperpage{28}
+    \subitem {layer.h}, \hyperpage{33}
+  \item {layer\_struct}, \hyperpage{5}
+  \item {layer\_zero\_grad}
+    \subitem {layer.c}, \hyperpage{29}
+    \subitem {layer.h}, \hyperpage{33}
+  \item {lg}
+    \subitem {grad.c}, \hyperpage{47}
+    \subitem {grad.h}, \hyperpage{59}
+  \item {lg\_backward}
+    \subitem {grad.c}, \hyperpage{47}
+    \subitem {grad.h}, \hyperpage{60}
+  \item {load/data.c}, \hyperpage{9}
+  \item {load/data.h}, \hyperpage{11}, \hyperpage{13}
+  \item {loss\_fn}
+    \subitem {ann.c}, \hyperpage{19}
+    \subitem {ann.h}, \hyperpage{24}
+  \item {loss\_fn\_nograd}
+    \subitem {ann.c}, \hyperpage{20}
+    \subitem {ann.h}, \hyperpage{24}
+
+  \indexspace
+
+  \item {main/mnist.c}, \hyperpage{13}
+  \item {main/mnist.h}, \hyperpage{15, 16}
+  \item {max}
+    \subitem {grad.c}, \hyperpage{48}
+    \subitem {grad.h}, \hyperpage{60}
+  \item {mnist.c}
+    \subitem {perm}, \hyperpage{14}
+    \subitem {test}, \hyperpage{14}
+    \subitem {train}, \hyperpage{15}
+  \item {mnist.h}
+    \subitem {perm}, \hyperpage{16}
+    \subitem {test}, \hyperpage{16}
+    \subitem {train}, \hyperpage{16}
+  \item {mod}
+    \subitem {grad.c}, \hyperpage{48}
+    \subitem {grad.h}, \hyperpage{60}
+  \item {mod\_backward}
+    \subitem {grad.c}, \hyperpage{48}
+    \subitem {grad.h}, \hyperpage{61}
+  \item {mul}
+    \subitem {grad.c}, \hyperpage{48}
+    \subitem {grad.h}, \hyperpage{61}
+  \item {mul\_backward}
+    \subitem {grad.c}, \hyperpage{49}
+    \subitem {grad.h}, \hyperpage{61}
+
+  \indexspace
+
+  \item {neg}
+    \subitem {grad.c}, \hyperpage{49}
+    \subitem {grad.h}, \hyperpage{62}
+  \item {neuron}
+    \subitem {neuron.c}, \hyperpage{35}
+    \subitem {neuron.h}, \hyperpage{40}
+  \item {neuron.c}
+    \subitem {copy\_weights}, \hyperpage{35}
+    \subitem {free\_neuron}, \hyperpage{35}
+    \subitem {neuron}, \hyperpage{35}
+    \subitem {neuron\_descend}, \hyperpage{35}
+    \subitem {neuron\_forward}, \hyperpage{36}
+    \subitem {neuron\_nograd\_forward}, \hyperpage{36}
+    \subitem {neuron\_regularization}, \hyperpage{36}
+    \subitem {neuron\_zero\_grad}, \hyperpage{38}
+  \item {neuron.h}
+    \subitem {copy\_weights}, \hyperpage{39}
+    \subitem {free\_neuron}, \hyperpage{39}
+    \subitem {neuron}, \hyperpage{40}
+    \subitem {neuron\_descend}, \hyperpage{40}
+    \subitem {neuron\_forward}, \hyperpage{40}
+    \subitem {neuron\_nograd\_forward}, \hyperpage{41}
+    \subitem {neuron\_regularization}, \hyperpage{41}
+    \subitem {neuron\_zero\_grad}, \hyperpage{42}
+  \item {neuron\_descend}
+    \subitem {neuron.c}, \hyperpage{35}
+    \subitem {neuron.h}, \hyperpage{40}
+  \item {neuron\_forward}
+    \subitem {neuron.c}, \hyperpage{36}
+    \subitem {neuron.h}, \hyperpage{40}
+  \item {neuron\_nograd\_forward}
+    \subitem {neuron.c}, \hyperpage{36}
+    \subitem {neuron.h}, \hyperpage{41}
+  \item {neuron\_regularization}
+    \subitem {neuron.c}, \hyperpage{36}
+    \subitem {neuron.h}, \hyperpage{41}
+  \item {neuron\_struct}, \hyperpage{6}
+  \item {neuron\_zero\_grad}
+    \subitem {neuron.c}, \hyperpage{38}
+    \subitem {neuron.h}, \hyperpage{42}
+  \item {nn/ann.c}, \hyperpage{17}
+  \item {nn/ann.h}, \hyperpage{21}, \hyperpage{26}
+  \item {nn/layer.c}, \hyperpage{26}
+  \item {nn/layer.h}, \hyperpage{29}, \hyperpage{33}
+  \item {nn/neuron.c}, \hyperpage{34}
+  \item {nn/neuron.h}, \hyperpage{38}, \hyperpage{42}
+  \item {node\_struct}, \hyperpage{6}
+  \item {normal}
+    \subitem {normal.c}, \hyperpage{68}
+    \subitem {normal.h}, \hyperpage{69}
+  \item {normal.c}
+    \subitem {normal}, \hyperpage{68}
+  \item {normal.h}
+    \subitem {normal}, \hyperpage{69}
+
+  \indexspace
+
+  \item {param\_struct}, \hyperpage{7}
+  \item {parameter}
+    \subitem {grad.c}, \hyperpage{49}
+    \subitem {grad.h}, \hyperpage{62}
+  \item {perm}
+    \subitem {mnist.c}, \hyperpage{14}
+    \subitem {mnist.h}, \hyperpage{16}
+  \item {power}
+    \subitem {grad.c}, \hyperpage{50}
+    \subitem {grad.h}, \hyperpage{62}
+  \item {power\_backward}
+    \subitem {grad.c}, \hyperpage{50}
+    \subitem {grad.h}, \hyperpage{62}
+  \item {predict}
+    \subitem {ann.c}, \hyperpage{20}
+    \subitem {ann.h}, \hyperpage{25}
+  \item {print\_image}
+    \subitem {data.c}, \hyperpage{10}
+    \subitem {data.h}, \hyperpage{12}
+
+  \indexspace
+
+  \item {read\_csv}
+    \subitem {data.c}, \hyperpage{10}
+    \subitem {data.h}, \hyperpage{12}
+  \item {read\_image}
+    \subitem {data.c}, \hyperpage{10}
+    \subitem {data.h}, \hyperpage{13}
+  \item {regularization}
+    \subitem {ann.c}, \hyperpage{20}
+    \subitem {ann.h}, \hyperpage{25}
+  \item {relu}
+    \subitem {grad.c}, \hyperpage{50}
+    \subitem {grad.h}, \hyperpage{63}
+  \item {relu\_backward}
+    \subitem {grad.c}, \hyperpage{50}
+    \subitem {grad.h}, \hyperpage{63}
+
+  \indexspace
+
+  \item {sigmoid}
+    \subitem {grad.c}, \hyperpage{51}
+    \subitem {grad.h}, \hyperpage{63}
+  \item {sigmoid\_backward}
+    \subitem {grad.c}, \hyperpage{51}
+    \subitem {grad.h}, \hyperpage{64}
+  \item {softmax}
+    \subitem {grad.c}, \hyperpage{51}
+    \subitem {grad.h}, \hyperpage{64}
+  \item {sub}
+    \subitem {grad.c}, \hyperpage{52}
+    \subitem {grad.h}, \hyperpage{64}
+
+  \indexspace
+
+  \item {tanh\_backward}
+    \subitem {grad.c}, \hyperpage{52}
+    \subitem {grad.h}, \hyperpage{65}
+  \item {tanhyp}
+    \subitem {grad.c}, \hyperpage{52}
+    \subitem {grad.h}, \hyperpage{65}
+  \item {test}
+    \subitem {mnist.c}, \hyperpage{14}
+    \subitem {mnist.h}, \hyperpage{16}
+  \item {train}
+    \subitem {mnist.c}, \hyperpage{15}
+    \subitem {mnist.h}, \hyperpage{16}
+
+  \indexspace
+
+  \item {utils/grad.c}, \hyperpage{42}
+  \item {utils/grad.h}, \hyperpage{53}, \hyperpage{66}
+  \item {utils/normal.c}, \hyperpage{67}
+  \item {utils/normal.h}, \hyperpage{68, 69}
+
+  \indexspace
+
+  \item {value\_array}
+    \subitem {grad.c}, \hyperpage{52}
+    \subitem {grad.h}, \hyperpage{65}
+  \item {value\_struct}, \hyperpage{7}
+
+  \indexspace
+
+  \item {zero\_grad}
+    \subitem {ann.c}, \hyperpage{21}
+    \subitem {ann.h}, \hyperpage{25}
+
+\end{theindex}

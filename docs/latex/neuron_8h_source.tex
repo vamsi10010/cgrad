@@ -1,0 +1,44 @@
+\doxysection{neuron.\+h}
+\hypertarget{neuron_8h_source}{}\label{neuron_8h_source}\index{nn/neuron.h@{nn/neuron.h}}
+\mbox{\hyperlink{neuron_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ \_\_NEURON\_H\_\_}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ \_\_NEURON\_H\_\_}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}../utils/grad.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../utils/normal.h"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{neuron_8h_a68e229f7483c0a7ee56dd2096400afc1}{regularization\_enum}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ L1,}
+\DoxyCodeLine{00021\ \ \ \ \ L2}
+\DoxyCodeLine{00022\ \}\ \mbox{\hyperlink{neuron_8h_ae0f774b9119326109e149ba5e323dca0}{REG}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structneuron__struct}{neuron\_struct}}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_inputs;}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{structparam__struct}{PARAM}}\ *params;}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ **weights;}
+\DoxyCodeLine{00031\ \}\ \mbox{\hyperlink{neuron_8h_a6ae52527b77e5a1b1064cd0dd4d26fea}{NEURON}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00038\ \mbox{\hyperlink{structneuron__struct}{NEURON}}\ *\mbox{\hyperlink{neuron_8h_a3a88e09bcb65330e1186670316d39548}{neuron}}(\textcolor{keywordtype}{int}\ num\_inputs);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00047\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{neuron_8h_a82b7e208216d25df82d07fb125d86c02}{neuron\_forward}}(\mbox{\hyperlink{structneuron__struct}{NEURON}}\ *n,\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ **x,\ \mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}}\ activation);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{neuron_8h_a27cd2f0c74cab89a03bea65680177da8}{neuron\_nograd\_forward}}(\mbox{\hyperlink{structneuron__struct}{NEURON}}\ *n,\ \textcolor{keywordtype}{double}\ *x,\ \mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}}\ activation);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00065\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{neuron_8h_afa09ed4313d64550bbcbf4da379a4ea9}{neuron\_regularization}}(\mbox{\hyperlink{structneuron__struct}{NEURON}}\ *n,\ \mbox{\hyperlink{neuron_8h_ae0f774b9119326109e149ba5e323dca0}{REG}}\ reg,\ \textcolor{keywordtype}{double}\ c);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{neuron_8h_afad7963f9e81a0d70558195d6e906eaa}{neuron\_descend}}(\mbox{\hyperlink{structneuron__struct}{NEURON}}\ *n,\ \textcolor{keywordtype}{double}\ lr,\ \textcolor{keywordtype}{bool}\ momentum);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{neuron_8h_ae276847476353192b80f14e5630f45ec}{free\_neuron}}(\mbox{\hyperlink{structneuron__struct}{NEURON}}\ *n);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00088\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{neuron_8h_a82b7e208216d25df82d07fb125d86c02}{neuron\_forward}}(\mbox{\hyperlink{structneuron__struct}{NEURON}}\ *n,\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ **x,\ \mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}}\ activation);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{neuron_8h_a04675c5fb6b6aeeefa8be2f0cf5cf1c8}{copy\_weights}}(\mbox{\hyperlink{structneuron__struct}{NEURON}}\ *n);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{neuron_8h_ab65bececde48c0d50ba9b164c027591f}{neuron\_zero\_grad}}(\mbox{\hyperlink{structneuron__struct}{NEURON}}\ *n);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_NEURON\_H\_\_}}
+
+\end{DoxyCode}

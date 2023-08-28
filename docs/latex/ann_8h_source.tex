@@ -1,0 +1,44 @@
+\doxysection{ann.\+h}
+\hypertarget{ann_8h_source}{}\label{ann_8h_source}\index{nn/ann.h@{nn/ann.h}}
+\mbox{\hyperlink{ann_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ \_\_ANN\_H\_\_}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ \_\_ANN\_H\_\_}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}../utils/grad.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{layer_8h}{layer.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{ann_8h_a2a4ec8e1c0c344aaecca227c72c2eeb4}{loss\_enum}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ MSE,}
+\DoxyCodeLine{00021\ \ \ \ \ CROSS\_ENTROPY}
+\DoxyCodeLine{00022\ \}\ \mbox{\hyperlink{ann_8h_a2fe070419e926112e1be023b50242897}{LOSS}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structann__struct}{ann\_struct}}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ n\_layers;}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{structlayer__struct}{LAYER}}\ **layers;}
+\DoxyCodeLine{00030\ \}\ \mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00040\ \mbox{\hyperlink{structann__struct}{ANN}}\ *\mbox{\hyperlink{ann_8h_ad23b1500cbdb988f764ebad6b73f0dd4}{ann}}(\textcolor{keywordtype}{int}\ num\_layers,\ \textcolor{keywordtype}{int}\ *layer\_sizes,\ \mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}}\ *activations,\ \textcolor{keywordtype}{int}\ num\_inputs);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ **\mbox{\hyperlink{ann_8h_a62e9e3b9790f0e06a068fa9051d7a462}{ann\_forward}}(\mbox{\hyperlink{structann__struct}{ANN}}\ *a,\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ **x);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00056\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{ann_8h_ac84fde94ff69532afcdf27cda29a4c90}{regularization}}(\mbox{\hyperlink{structann__struct}{ANN}}\ *a,\ \mbox{\hyperlink{neuron_8h_ae0f774b9119326109e149ba5e323dca0}{REG}}\ reg,\ \textcolor{keywordtype}{double}\ c);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ann_8h_a78928fd15b64ad46d2e482513ed71978}{ann\_descend}}(\mbox{\hyperlink{structann__struct}{ANN}}\ *a,\ \textcolor{keywordtype}{double}\ lr,\ \textcolor{keywordtype}{bool}\ momentum);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ann_8h_aedf281a5424f9070a123c2eb56e75fac}{free\_ann}}(\mbox{\hyperlink{structann__struct}{ANN}}\ *a);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ann_8h_a424ebb303eff3db52042cf0ee341b799}{zero\_grad}}(\mbox{\hyperlink{structann__struct}{ANN}}\ *a);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00086\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{ann_8h_a8238bec7244e26187277bc17fd61c87f}{loss\_fn}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ **yhat,\ \textcolor{keywordtype}{double}\ y,\ \mbox{\hyperlink{ann_8h_a2fe070419e926112e1be023b50242897}{LOSS}}\ loss,\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{double}\ *\mbox{\hyperlink{ann_8h_a970d5b5370456638ddfa76486a83c682}{ann\_nograd\_forward}}(\mbox{\hyperlink{structann__struct}{ANN}}\ *a,\ \textcolor{keywordtype}{double}\ *x);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{ann_8h_ab486afba8050f59804781fd2c88850ab}{loss\_fn\_nograd}}(\textcolor{keywordtype}{double}\ *yhat,\ \textcolor{keywordtype}{double}\ y,\ \mbox{\hyperlink{ann_8h_a2fe070419e926112e1be023b50242897}{LOSS}}\ loss,\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{ann_8h_a0f8d6e259497735833c9dc0b129bf15b}{predict}}(\mbox{\hyperlink{structann__struct}{ANN}}\ *n,\ \textcolor{keywordtype}{double}\ *x,\ \textcolor{keywordtype}{int}\ classes);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_ANN\_H\_\_}}
+
+\end{DoxyCode}

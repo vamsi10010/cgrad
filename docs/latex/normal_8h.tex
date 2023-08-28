@@ -1,0 +1,52 @@
+\doxysection{utils/normal.h File Reference}
+\hypertarget{normal_8h}{}\label{normal_8h}\index{utils/normal.h@{utils/normal.h}}
+
+
+Function prototypes for generating normally distributed random numbers.  
+
+
+{\ttfamily \#include $<$complex.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{normal_8h_af9329f9acef07ca14ea2256191c3ce74}\label{normal_8h_af9329f9acef07ca14ea2256191c3ce74} 
+double {\bfseries drand48} (void)
+\item 
+double \mbox{\hyperlink{normal_8h_a7244b96824f357f6ef135eb44832d32d}{normal}} (double mu, double sigma)
+\begin{DoxyCompactList}\small\item\em Returns a normally distributed random value with mean mu and standard deviation sigma. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Function prototypes for generating normally distributed random numbers. 
+
+This contains function prototypes for generating normally distributed random numbers. The function is implemented in \doxylink{normal_8c}{normal.\+c}.
+
+\begin{DoxyAuthor}{Author}
+Vamsi Deeduvanu (vamsi10010) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{normal_8h_a7244b96824f357f6ef135eb44832d32d}\label{normal_8h_a7244b96824f357f6ef135eb44832d32d} 
+\index{normal.h@{normal.h}!normal@{normal}}
+\index{normal@{normal}!normal.h@{normal.h}}
+\doxysubsubsection{\texorpdfstring{normal()}{normal()}}
+{\footnotesize\ttfamily double normal (\begin{DoxyParamCaption}\item[{double}]{mu,  }\item[{double}]{sigma }\end{DoxyParamCaption})}
+
+
+
+Returns a normally distributed random value with mean mu and standard deviation sigma. 
+
+This function uses an algortihm called \href{https://en.wikipedia.org/wiki/Box\%E2\%80\%93Muller_transform}{\texttt{ Box-\/\+Muller transform}}. Use {\ttfamily normal(0, 1)} to generate a standard normal random variable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mu} & The mean of the normal distribution. \\
+\hline
+{\em sigma} & The standard deviation of the normal distribution. \\
+\hline
+\end{DoxyParams}

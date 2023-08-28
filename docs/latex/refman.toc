@@ -1,0 +1,196 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Class Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Class List}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Class Documentation}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}ann\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}struct Struct Reference}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Detailed Description}{5}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}layer\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}struct Struct Reference}{5}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Detailed Description}{6}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}neuron\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}struct Struct Reference}{6}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Detailed Description}{6}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.4}node\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}struct Struct Reference}{6}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Detailed Description}{6}{subsection.3.4.1}%
+\contentsline {section}{\numberline {3.5}param\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}struct Struct Reference}{7}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Detailed Description}{7}{subsection.3.5.1}%
+\contentsline {section}{\numberline {3.6}value\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}struct Struct Reference}{7}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Detailed Description}{7}{subsection.3.6.1}%
+\contentsline {chapter}{\numberline {4}File Documentation}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}load/data.c File Reference}{9}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{9}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Function Documentation}{9}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}free\_images()}{9}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}print\_image()}{10}{subsubsection.4.1.2.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.3}read\_csv()}{10}{subsubsection.4.1.2.3}%
+\contentsline {subsubsection}{\numberline {4.1.2.4}read\_image()}{10}{subsubsection.4.1.2.4}%
+\contentsline {section}{\numberline {4.2}load/data.h File Reference}{11}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{11}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Function Documentation}{12}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}free\_images()}{12}{subsubsection.4.2.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2.2}print\_image()}{12}{subsubsection.4.2.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.3}read\_csv()}{12}{subsubsection.4.2.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.2.4}read\_image()}{13}{subsubsection.4.2.2.4}%
+\contentsline {section}{\numberline {4.3}data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{13}{section.4.3}%
+\contentsline {section}{\numberline {4.4}main/mnist.c File Reference}{13}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Detailed Description}{14}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Function Documentation}{14}{subsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}perm()}{14}{subsubsection.4.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}test()}{14}{subsubsection.4.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.3}train()}{15}{subsubsection.4.4.2.3}%
+\contentsline {section}{\numberline {4.5}main/mnist.h File Reference}{15}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{15}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Function Documentation}{16}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}perm()}{16}{subsubsection.4.5.2.1}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}test()}{16}{subsubsection.4.5.2.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.3}train()}{16}{subsubsection.4.5.2.3}%
+\contentsline {section}{\numberline {4.6}mnist.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{16}{section.4.6}%
+\contentsline {section}{\numberline {4.7}nn/ann.c File Reference}{17}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Detailed Description}{17}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Function Documentation}{18}{subsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.1}ann()}{18}{subsubsection.4.7.2.1}%
+\contentsline {subsubsection}{\numberline {4.7.2.2}ann\_descend()}{18}{subsubsection.4.7.2.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.3}ann\_forward()}{18}{subsubsection.4.7.2.3}%
+\contentsline {subsubsection}{\numberline {4.7.2.4}ann\_nograd\_forward()}{19}{subsubsection.4.7.2.4}%
+\contentsline {subsubsection}{\numberline {4.7.2.5}free\_ann()}{19}{subsubsection.4.7.2.5}%
+\contentsline {subsubsection}{\numberline {4.7.2.6}loss\_fn()}{19}{subsubsection.4.7.2.6}%
+\contentsline {subsubsection}{\numberline {4.7.2.7}loss\_fn\_nograd()}{20}{subsubsection.4.7.2.7}%
+\contentsline {subsubsection}{\numberline {4.7.2.8}predict()}{20}{subsubsection.4.7.2.8}%
+\contentsline {subsubsection}{\numberline {4.7.2.9}regularization()}{20}{subsubsection.4.7.2.9}%
+\contentsline {subsubsection}{\numberline {4.7.2.10}zero\_grad()}{21}{subsubsection.4.7.2.10}%
+\contentsline {section}{\numberline {4.8}nn/ann.h File Reference}{21}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Detailed Description}{22}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Function Documentation}{22}{subsection.4.8.2}%
+\contentsline {subsubsection}{\numberline {4.8.2.1}ann()}{22}{subsubsection.4.8.2.1}%
+\contentsline {subsubsection}{\numberline {4.8.2.2}ann\_descend()}{23}{subsubsection.4.8.2.2}%
+\contentsline {subsubsection}{\numberline {4.8.2.3}ann\_forward()}{23}{subsubsection.4.8.2.3}%
+\contentsline {subsubsection}{\numberline {4.8.2.4}ann\_nograd\_forward()}{23}{subsubsection.4.8.2.4}%
+\contentsline {subsubsection}{\numberline {4.8.2.5}free\_ann()}{24}{subsubsection.4.8.2.5}%
+\contentsline {subsubsection}{\numberline {4.8.2.6}loss\_fn()}{24}{subsubsection.4.8.2.6}%
+\contentsline {subsubsection}{\numberline {4.8.2.7}loss\_fn\_nograd()}{24}{subsubsection.4.8.2.7}%
+\contentsline {subsubsection}{\numberline {4.8.2.8}predict()}{25}{subsubsection.4.8.2.8}%
+\contentsline {subsubsection}{\numberline {4.8.2.9}regularization()}{25}{subsubsection.4.8.2.9}%
+\contentsline {subsubsection}{\numberline {4.8.2.10}zero\_grad()}{25}{subsubsection.4.8.2.10}%
+\contentsline {section}{\numberline {4.9}ann.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{26}{section.4.9}%
+\contentsline {section}{\numberline {4.10}nn/layer.c File Reference}{26}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Detailed Description}{27}{subsection.4.10.1}%
+\contentsline {subsection}{\numberline {4.10.2}Function Documentation}{27}{subsection.4.10.2}%
+\contentsline {subsubsection}{\numberline {4.10.2.1}free\_layer()}{27}{subsubsection.4.10.2.1}%
+\contentsline {subsubsection}{\numberline {4.10.2.2}layer()}{27}{subsubsection.4.10.2.2}%
+\contentsline {subsubsection}{\numberline {4.10.2.3}layer\_descend()}{27}{subsubsection.4.10.2.3}%
+\contentsline {subsubsection}{\numberline {4.10.2.4}layer\_forward()}{28}{subsubsection.4.10.2.4}%
+\contentsline {subsubsection}{\numberline {4.10.2.5}layer\_nograd\_forward()}{28}{subsubsection.4.10.2.5}%
+\contentsline {subsubsection}{\numberline {4.10.2.6}layer\_regularization()}{28}{subsubsection.4.10.2.6}%
+\contentsline {subsubsection}{\numberline {4.10.2.7}layer\_zero\_grad()}{29}{subsubsection.4.10.2.7}%
+\contentsline {section}{\numberline {4.11}nn/layer.h File Reference}{29}{section.4.11}%
+\contentsline {subsection}{\numberline {4.11.1}Detailed Description}{30}{subsection.4.11.1}%
+\contentsline {subsection}{\numberline {4.11.2}Function Documentation}{30}{subsection.4.11.2}%
+\contentsline {subsubsection}{\numberline {4.11.2.1}free\_layer()}{30}{subsubsection.4.11.2.1}%
+\contentsline {subsubsection}{\numberline {4.11.2.2}layer()}{30}{subsubsection.4.11.2.2}%
+\contentsline {subsubsection}{\numberline {4.11.2.3}layer\_descend()}{31}{subsubsection.4.11.2.3}%
+\contentsline {subsubsection}{\numberline {4.11.2.4}layer\_forward()}{31}{subsubsection.4.11.2.4}%
+\contentsline {subsubsection}{\numberline {4.11.2.5}layer\_nograd\_forward()}{31}{subsubsection.4.11.2.5}%
+\contentsline {subsubsection}{\numberline {4.11.2.6}layer\_regularization()}{33}{subsubsection.4.11.2.6}%
+\contentsline {subsubsection}{\numberline {4.11.2.7}layer\_zero\_grad()}{33}{subsubsection.4.11.2.7}%
+\contentsline {section}{\numberline {4.12}layer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{33}{section.4.12}%
+\contentsline {section}{\numberline {4.13}nn/neuron.c File Reference}{34}{section.4.13}%
+\contentsline {subsection}{\numberline {4.13.1}Detailed Description}{34}{subsection.4.13.1}%
+\contentsline {subsection}{\numberline {4.13.2}Function Documentation}{35}{subsection.4.13.2}%
+\contentsline {subsubsection}{\numberline {4.13.2.1}copy\_weights()}{35}{subsubsection.4.13.2.1}%
+\contentsline {subsubsection}{\numberline {4.13.2.2}free\_neuron()}{35}{subsubsection.4.13.2.2}%
+\contentsline {subsubsection}{\numberline {4.13.2.3}neuron()}{35}{subsubsection.4.13.2.3}%
+\contentsline {subsubsection}{\numberline {4.13.2.4}neuron\_descend()}{35}{subsubsection.4.13.2.4}%
+\contentsline {subsubsection}{\numberline {4.13.2.5}neuron\_forward()}{36}{subsubsection.4.13.2.5}%
+\contentsline {subsubsection}{\numberline {4.13.2.6}neuron\_nograd\_forward()}{36}{subsubsection.4.13.2.6}%
+\contentsline {subsubsection}{\numberline {4.13.2.7}neuron\_regularization()}{36}{subsubsection.4.13.2.7}%
+\contentsline {subsubsection}{\numberline {4.13.2.8}neuron\_zero\_grad()}{38}{subsubsection.4.13.2.8}%
+\contentsline {section}{\numberline {4.14}nn/neuron.h File Reference}{38}{section.4.14}%
+\contentsline {subsection}{\numberline {4.14.1}Detailed Description}{39}{subsection.4.14.1}%
+\contentsline {subsection}{\numberline {4.14.2}Function Documentation}{39}{subsection.4.14.2}%
+\contentsline {subsubsection}{\numberline {4.14.2.1}copy\_weights()}{39}{subsubsection.4.14.2.1}%
+\contentsline {subsubsection}{\numberline {4.14.2.2}free\_neuron()}{39}{subsubsection.4.14.2.2}%
+\contentsline {subsubsection}{\numberline {4.14.2.3}neuron()}{40}{subsubsection.4.14.2.3}%
+\contentsline {subsubsection}{\numberline {4.14.2.4}neuron\_descend()}{40}{subsubsection.4.14.2.4}%
+\contentsline {subsubsection}{\numberline {4.14.2.5}neuron\_forward()}{40}{subsubsection.4.14.2.5}%
+\contentsline {subsubsection}{\numberline {4.14.2.6}neuron\_nograd\_forward()}{41}{subsubsection.4.14.2.6}%
+\contentsline {subsubsection}{\numberline {4.14.2.7}neuron\_regularization()}{41}{subsubsection.4.14.2.7}%
+\contentsline {subsubsection}{\numberline {4.14.2.8}neuron\_zero\_grad()}{42}{subsubsection.4.14.2.8}%
+\contentsline {section}{\numberline {4.15}neuron.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{42}{section.4.15}%
+\contentsline {section}{\numberline {4.16}utils/grad.c File Reference}{42}{section.4.16}%
+\contentsline {subsection}{\numberline {4.16.1}Detailed Description}{44}{subsection.4.16.1}%
+\contentsline {subsection}{\numberline {4.16.2}Function Documentation}{44}{subsection.4.16.2}%
+\contentsline {subsubsection}{\numberline {4.16.2.1}add()}{44}{subsubsection.4.16.2.1}%
+\contentsline {subsubsection}{\numberline {4.16.2.2}add\_backward()}{44}{subsubsection.4.16.2.2}%
+\contentsline {subsubsection}{\numberline {4.16.2.3}argmax()}{45}{subsubsection.4.16.2.3}%
+\contentsline {subsubsection}{\numberline {4.16.2.4}backward()}{45}{subsubsection.4.16.2.4}%
+\contentsline {subsubsection}{\numberline {4.16.2.5}build\_topological\_order()}{45}{subsubsection.4.16.2.5}%
+\contentsline {subsubsection}{\numberline {4.16.2.6}constant()}{46}{subsubsection.4.16.2.6}%
+\contentsline {subsubsection}{\numberline {4.16.2.7}divide()}{46}{subsubsection.4.16.2.7}%
+\contentsline {subsubsection}{\numberline {4.16.2.8}ex()}{46}{subsubsection.4.16.2.8}%
+\contentsline {subsubsection}{\numberline {4.16.2.9}ex\_backward()}{47}{subsubsection.4.16.2.9}%
+\contentsline {subsubsection}{\numberline {4.16.2.10}free\_values()}{47}{subsubsection.4.16.2.10}%
+\contentsline {subsubsection}{\numberline {4.16.2.11}lg()}{47}{subsubsection.4.16.2.11}%
+\contentsline {subsubsection}{\numberline {4.16.2.12}lg\_backward()}{47}{subsubsection.4.16.2.12}%
+\contentsline {subsubsection}{\numberline {4.16.2.13}max()}{48}{subsubsection.4.16.2.13}%
+\contentsline {subsubsection}{\numberline {4.16.2.14}mod()}{48}{subsubsection.4.16.2.14}%
+\contentsline {subsubsection}{\numberline {4.16.2.15}mod\_backward()}{48}{subsubsection.4.16.2.15}%
+\contentsline {subsubsection}{\numberline {4.16.2.16}mul()}{48}{subsubsection.4.16.2.16}%
+\contentsline {subsubsection}{\numberline {4.16.2.17}mul\_backward()}{49}{subsubsection.4.16.2.17}%
+\contentsline {subsubsection}{\numberline {4.16.2.18}neg()}{49}{subsubsection.4.16.2.18}%
+\contentsline {subsubsection}{\numberline {4.16.2.19}parameter()}{49}{subsubsection.4.16.2.19}%
+\contentsline {subsubsection}{\numberline {4.16.2.20}power()}{50}{subsubsection.4.16.2.20}%
+\contentsline {subsubsection}{\numberline {4.16.2.21}power\_backward()}{50}{subsubsection.4.16.2.21}%
+\contentsline {subsubsection}{\numberline {4.16.2.22}relu()}{50}{subsubsection.4.16.2.22}%
+\contentsline {subsubsection}{\numberline {4.16.2.23}relu\_backward()}{51}{subsubsection.4.16.2.23}%
+\contentsline {subsubsection}{\numberline {4.16.2.24}sigmoid()}{51}{subsubsection.4.16.2.24}%
+\contentsline {subsubsection}{\numberline {4.16.2.25}sigmoid\_backward()}{51}{subsubsection.4.16.2.25}%
+\contentsline {subsubsection}{\numberline {4.16.2.26}softmax()}{51}{subsubsection.4.16.2.26}%
+\contentsline {subsubsection}{\numberline {4.16.2.27}sub()}{52}{subsubsection.4.16.2.27}%
+\contentsline {subsubsection}{\numberline {4.16.2.28}tanh\_backward()}{52}{subsubsection.4.16.2.28}%
+\contentsline {subsubsection}{\numberline {4.16.2.29}tanhyp()}{52}{subsubsection.4.16.2.29}%
+\contentsline {subsubsection}{\numberline {4.16.2.30}value\_array()}{53}{subsubsection.4.16.2.30}%
+\contentsline {section}{\numberline {4.17}utils/grad.h File Reference}{53}{section.4.17}%
+\contentsline {subsection}{\numberline {4.17.1}Detailed Description}{55}{subsection.4.17.1}%
+\contentsline {subsection}{\numberline {4.17.2}Function Documentation}{55}{subsection.4.17.2}%
+\contentsline {subsubsection}{\numberline {4.17.2.1}add()}{55}{subsubsection.4.17.2.1}%
+\contentsline {subsubsection}{\numberline {4.17.2.2}add\_backward()}{56}{subsubsection.4.17.2.2}%
+\contentsline {subsubsection}{\numberline {4.17.2.3}argmax()}{56}{subsubsection.4.17.2.3}%
+\contentsline {subsubsection}{\numberline {4.17.2.4}backward()}{56}{subsubsection.4.17.2.4}%
+\contentsline {subsubsection}{\numberline {4.17.2.5}build\_node()}{57}{subsubsection.4.17.2.5}%
+\contentsline {subsubsection}{\numberline {4.17.2.6}build\_topological\_order()}{57}{subsubsection.4.17.2.6}%
+\contentsline {subsubsection}{\numberline {4.17.2.7}constant()}{57}{subsubsection.4.17.2.7}%
+\contentsline {subsubsection}{\numberline {4.17.2.8}divide()}{57}{subsubsection.4.17.2.8}%
+\contentsline {subsubsection}{\numberline {4.17.2.9}ex()}{59}{subsubsection.4.17.2.9}%
+\contentsline {subsubsection}{\numberline {4.17.2.10}ex\_backward()}{59}{subsubsection.4.17.2.10}%
+\contentsline {subsubsection}{\numberline {4.17.2.11}free\_values()}{59}{subsubsection.4.17.2.11}%
+\contentsline {subsubsection}{\numberline {4.17.2.12}lg()}{60}{subsubsection.4.17.2.12}%
+\contentsline {subsubsection}{\numberline {4.17.2.13}lg\_backward()}{60}{subsubsection.4.17.2.13}%
+\contentsline {subsubsection}{\numberline {4.17.2.14}max()}{60}{subsubsection.4.17.2.14}%
+\contentsline {subsubsection}{\numberline {4.17.2.15}mod()}{60}{subsubsection.4.17.2.15}%
+\contentsline {subsubsection}{\numberline {4.17.2.16}mod\_backward()}{61}{subsubsection.4.17.2.16}%
+\contentsline {subsubsection}{\numberline {4.17.2.17}mul()}{61}{subsubsection.4.17.2.17}%
+\contentsline {subsubsection}{\numberline {4.17.2.18}mul\_backward()}{61}{subsubsection.4.17.2.18}%
+\contentsline {subsubsection}{\numberline {4.17.2.19}neg()}{62}{subsubsection.4.17.2.19}%
+\contentsline {subsubsection}{\numberline {4.17.2.20}parameter()}{62}{subsubsection.4.17.2.20}%
+\contentsline {subsubsection}{\numberline {4.17.2.21}power()}{62}{subsubsection.4.17.2.21}%
+\contentsline {subsubsection}{\numberline {4.17.2.22}power\_backward()}{63}{subsubsection.4.17.2.22}%
+\contentsline {subsubsection}{\numberline {4.17.2.23}relu()}{63}{subsubsection.4.17.2.23}%
+\contentsline {subsubsection}{\numberline {4.17.2.24}relu\_backward()}{63}{subsubsection.4.17.2.24}%
+\contentsline {subsubsection}{\numberline {4.17.2.25}sigmoid()}{63}{subsubsection.4.17.2.25}%
+\contentsline {subsubsection}{\numberline {4.17.2.26}sigmoid\_backward()}{64}{subsubsection.4.17.2.26}%
+\contentsline {subsubsection}{\numberline {4.17.2.27}softmax()}{64}{subsubsection.4.17.2.27}%
+\contentsline {subsubsection}{\numberline {4.17.2.28}sub()}{64}{subsubsection.4.17.2.28}%
+\contentsline {subsubsection}{\numberline {4.17.2.29}tanh\_backward()}{65}{subsubsection.4.17.2.29}%
+\contentsline {subsubsection}{\numberline {4.17.2.30}tanhyp()}{65}{subsubsection.4.17.2.30}%
+\contentsline {subsubsection}{\numberline {4.17.2.31}value\_array()}{65}{subsubsection.4.17.2.31}%
+\contentsline {section}{\numberline {4.18}grad.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{66}{section.4.18}%
+\contentsline {section}{\numberline {4.19}utils/normal.c File Reference}{67}{section.4.19}%
+\contentsline {subsection}{\numberline {4.19.1}Detailed Description}{67}{subsection.4.19.1}%
+\contentsline {subsection}{\numberline {4.19.2}Function Documentation}{68}{subsection.4.19.2}%
+\contentsline {subsubsection}{\numberline {4.19.2.1}normal()}{68}{subsubsection.4.19.2.1}%
+\contentsline {section}{\numberline {4.20}utils/normal.h File Reference}{68}{section.4.20}%
+\contentsline {subsection}{\numberline {4.20.1}Detailed Description}{68}{subsection.4.20.1}%
+\contentsline {subsection}{\numberline {4.20.2}Function Documentation}{69}{subsection.4.20.2}%
+\contentsline {subsubsection}{\numberline {4.20.2.1}normal()}{69}{subsubsection.4.20.2.1}%
+\contentsline {section}{\numberline {4.21}normal.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{69}{section.4.21}%
+\contentsline {chapter}{Index}{71}{section*.35}%

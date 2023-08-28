@@ -1,0 +1,51 @@
+\doxysection{utils/normal.c File Reference}
+\hypertarget{normal_8c}{}\label{normal_8c}\index{utils/normal.c@{utils/normal.c}}
+
+
+Function for generating normally distributed random numbers.  
+
+
+{\ttfamily \#include "{}normal.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{normal_8c_a598a3330b3c21701223ee0ca14316eca}\label{normal_8c_a598a3330b3c21701223ee0ca14316eca} 
+\#define {\bfseries PI}~(3.\+141592653589793)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{normal_8c_a7244b96824f357f6ef135eb44832d32d}{normal}} (double mu, double sigma)
+\begin{DoxyCompactList}\small\item\em Returns a normally distributed random value with mean mu and standard deviation sigma. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Function for generating normally distributed random numbers. 
+
+This contains function prototype for generating normally distributed random numbers.
+
+\begin{DoxyAuthor}{Author}
+Vamsi Deeduvanu (vamsi10010) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{normal_8c_a7244b96824f357f6ef135eb44832d32d}\label{normal_8c_a7244b96824f357f6ef135eb44832d32d} 
+\index{normal.c@{normal.c}!normal@{normal}}
+\index{normal@{normal}!normal.c@{normal.c}}
+\doxysubsubsection{\texorpdfstring{normal()}{normal()}}
+{\footnotesize\ttfamily double normal (\begin{DoxyParamCaption}\item[{double}]{mu,  }\item[{double}]{sigma }\end{DoxyParamCaption})}
+
+
+
+Returns a normally distributed random value with mean mu and standard deviation sigma. 
+
+This function uses an algortihm called \href{https://en.wikipedia.org/wiki/Box\%E2\%80\%93Muller_transform}{\texttt{ Box-\/\+Muller transform}}. Use {\ttfamily normal(0, 1)} to generate a standard normal random variable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mu} & The mean of the normal distribution. \\
+\hline
+{\em sigma} & The standard deviation of the normal distribution. \\
+\hline
+\end{DoxyParams}

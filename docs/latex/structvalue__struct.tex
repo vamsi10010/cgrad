@@ -1,0 +1,46 @@
+\doxysection{value\+\_\+struct Struct Reference}
+\hypertarget{structvalue__struct}{}\label{structvalue__struct}\index{value\_struct@{value\_struct}}
+
+
+A singe unit/value in the computational graph during backpropagation.  
+
+
+
+
+{\ttfamily \#include $<$grad.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structvalue__struct_a46efa9ef0d02aeaec619ca14c261aea2}\label{structvalue__struct_a46efa9ef0d02aeaec619ca14c261aea2} 
+double {\bfseries val}
+\item 
+\Hypertarget{structvalue__struct_a09d6c3af02db5a28f0f33f8e7d249226}\label{structvalue__struct_a09d6c3af02db5a28f0f33f8e7d249226} 
+double {\bfseries grad}
+\item 
+\Hypertarget{structvalue__struct_adb164a7c67222eff4c7c6a906bd1608c}\label{structvalue__struct_adb164a7c67222eff4c7c6a906bd1608c} 
+void(\texorpdfstring{$\ast$}{*} {\bfseries backward} )(struct \mbox{\hyperlink{structvalue__struct}{value\+\_\+struct}} \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{structvalue__struct_ae694722f45b496192a4cef719b2c0d8b}\label{structvalue__struct_ae694722f45b496192a4cef719b2c0d8b} 
+\mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}} {\bfseries op}
+\item 
+\Hypertarget{structvalue__struct_a742ff3e870d3c8c44d83a2297e6af524}\label{structvalue__struct_a742ff3e870d3c8c44d83a2297e6af524} 
+struct \mbox{\hyperlink{structvalue__struct}{value\+\_\+struct}} \texorpdfstring{$\ast$}{*} {\bfseries left}
+\item 
+\Hypertarget{structvalue__struct_afaeabad135ffe469c64a8c19a9dbbeed}\label{structvalue__struct_afaeabad135ffe469c64a8c19a9dbbeed} 
+struct \mbox{\hyperlink{structvalue__struct}{value\+\_\+struct}} \texorpdfstring{$\ast$}{*} {\bfseries right}
+\item 
+\Hypertarget{structvalue__struct_a9023f84811a4fd7fbbe38a5158a3dbff}\label{structvalue__struct_a9023f84811a4fd7fbbe38a5158a3dbff} 
+bool {\bfseries visited}
+\item 
+\Hypertarget{structvalue__struct_a59fbbf7e1811b25e85c6a67af24c95cf}\label{structvalue__struct_a59fbbf7e1811b25e85c6a67af24c95cf} 
+\mbox{\hyperlink{grad_8h_a62e8796a5f167ad64e81de0d85b14195}{PARAM}} \texorpdfstring{$\ast$}{*} {\bfseries param}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A singe unit/value in the computational graph during backpropagation. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+utils/\mbox{\hyperlink{grad_8h}{grad.\+h}}\end{DoxyCompactItemize}

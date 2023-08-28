@@ -1,0 +1,246 @@
+\doxysection{nn/ann.c File Reference}
+\hypertarget{ann_8c}{}\label{ann_8c}\index{nn/ann.c@{nn/ann.c}}
+
+
+Feedforwar neural network implementation.  
+
+
+{\ttfamily \#include "{}ann.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ann_8c_ad23b1500cbdb988f764ebad6b73f0dd4}{ann}} (int num\+\_\+layers, int \texorpdfstring{$\ast$}{*}layer\+\_\+sizes, \mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}} \texorpdfstring{$\ast$}{*}activations, int num\+\_\+inputs)
+\begin{DoxyCompactList}\small\item\em Creates a feedforward neural network. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ann_8c_a62e9e3b9790f0e06a068fa9051d7a462}{ann\+\_\+forward}} (\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}x)
+\begin{DoxyCompactList}\small\item\em Performs a forward pass on the network. \end{DoxyCompactList}\item 
+double \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ann_8c_a970d5b5370456638ddfa76486a83c682}{ann\+\_\+nograd\+\_\+forward}} (\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}a, double \texorpdfstring{$\ast$}{*}x)
+\begin{DoxyCompactList}\small\item\em Performs a forward pass on the network without creating a graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ann_8c_ac84fde94ff69532afcdf27cda29a4c90}{regularization}} (\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{neuron_8h_ae0f774b9119326109e149ba5e323dca0}{REG}} reg, double c)
+\begin{DoxyCompactList}\small\item\em Calculates the regularization term. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ann_8c_a78928fd15b64ad46d2e482513ed71978}{ann\+\_\+descend}} (\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}a, double lr, bool momentum)
+\begin{DoxyCompactList}\small\item\em Performs a gradient descent step on the network. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ann_8c_aedf281a5424f9070a123c2eb56e75fac}{free\+\_\+ann}} (\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Frees the memory allocated to the network. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ann_8c_a424ebb303eff3db52042cf0ee341b799}{zero\+\_\+grad}} (\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Sets the gradients of the network to zero. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ann_8c_a8238bec7244e26187277bc17fd61c87f}{loss\+\_\+fn}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}yhat, double y, \mbox{\hyperlink{ann_8h_a2fe070419e926112e1be023b50242897}{LOSS}} loss, int size)
+\begin{DoxyCompactList}\small\item\em Calculates the loss of the network (classification only). \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{ann_8c_ab486afba8050f59804781fd2c88850ab}{loss\+\_\+fn\+\_\+nograd}} (double \texorpdfstring{$\ast$}{*}yhat, double y, \mbox{\hyperlink{ann_8h_a2fe070419e926112e1be023b50242897}{LOSS}} loss, int size)
+\begin{DoxyCompactList}\small\item\em Calculates the loss of the network (classification only) without values. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ann_8c_a0f8d6e259497735833c9dc0b129bf15b}{predict}} (\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}n, double \texorpdfstring{$\ast$}{*}x, int classes)
+\begin{DoxyCompactList}\small\item\em Predicts the class of an input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Feedforwar neural network implementation. 
+
+This contains the implementation for the functions used to create a feedforward neural network.
+
+\begin{DoxyAuthor}{Author}
+Vamsi Deeduvanu (vamsi10010) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ann_8c_ad23b1500cbdb988f764ebad6b73f0dd4}\label{ann_8c_ad23b1500cbdb988f764ebad6b73f0dd4} 
+\index{ann.c@{ann.c}!ann@{ann}}
+\index{ann@{ann}!ann.c@{ann.c}}
+\doxysubsubsection{\texorpdfstring{ann()}{ann()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*} ann (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+layers,  }\item[{int \texorpdfstring{$\ast$}{*}}]{layer\+\_\+sizes,  }\item[{\mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}} \texorpdfstring{$\ast$}{*}}]{activations,  }\item[{int}]{num\+\_\+inputs }\end{DoxyParamCaption})}
+
+
+
+Creates a feedforward neural network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+layers} & The number of layers in the network. \\
+\hline
+{\em layer\+\_\+sizes} & The sizes of the layers in the network. \\
+\hline
+{\em activations} & The activation functions for the layers in the network. \\
+\hline
+{\em num\+\_\+inputs} & The number of inputs to the network. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the network. 
+\end{DoxyReturn}
+\Hypertarget{ann_8c_a78928fd15b64ad46d2e482513ed71978}\label{ann_8c_a78928fd15b64ad46d2e482513ed71978} 
+\index{ann.c@{ann.c}!ann\_descend@{ann\_descend}}
+\index{ann\_descend@{ann\_descend}!ann.c@{ann.c}}
+\doxysubsubsection{\texorpdfstring{ann\_descend()}{ann\_descend()}}
+{\footnotesize\ttfamily void ann\+\_\+descend (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}}]{a,  }\item[{double}]{lr,  }\item[{bool}]{momentum }\end{DoxyParamCaption})}
+
+
+
+Performs a gradient descent step on the network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The network. \\
+\hline
+{\em lr} & The learning rate. \\
+\hline
+{\em momentum} & Whether to use momentum. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ann_8c_a62e9e3b9790f0e06a068fa9051d7a462}\label{ann_8c_a62e9e3b9790f0e06a068fa9051d7a462} 
+\index{ann.c@{ann.c}!ann\_forward@{ann\_forward}}
+\index{ann\_forward@{ann\_forward}!ann.c@{ann.c}}
+\doxysubsubsection{\texorpdfstring{ann\_forward()}{ann\_forward()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} ann\+\_\+forward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}}]{a,  }\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{x }\end{DoxyParamCaption})}
+
+
+
+Performs a forward pass on the network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The network. \\
+\hline
+{\em x} & The input to the network. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the network. 
+\end{DoxyReturn}
+\Hypertarget{ann_8c_a970d5b5370456638ddfa76486a83c682}\label{ann_8c_a970d5b5370456638ddfa76486a83c682} 
+\index{ann.c@{ann.c}!ann\_nograd\_forward@{ann\_nograd\_forward}}
+\index{ann\_nograd\_forward@{ann\_nograd\_forward}!ann.c@{ann.c}}
+\doxysubsubsection{\texorpdfstring{ann\_nograd\_forward()}{ann\_nograd\_forward()}}
+{\footnotesize\ttfamily double \texorpdfstring{$\ast$}{*} ann\+\_\+nograd\+\_\+forward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}}]{a,  }\item[{double \texorpdfstring{$\ast$}{*}}]{x }\end{DoxyParamCaption})}
+
+
+
+Performs a forward pass on the network without creating a graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The network. \\
+\hline
+{\em x} & The input to the network. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the network. 
+\end{DoxyReturn}
+\Hypertarget{ann_8c_aedf281a5424f9070a123c2eb56e75fac}\label{ann_8c_aedf281a5424f9070a123c2eb56e75fac} 
+\index{ann.c@{ann.c}!free\_ann@{free\_ann}}
+\index{free\_ann@{free\_ann}!ann.c@{ann.c}}
+\doxysubsubsection{\texorpdfstring{free\_ann()}{free\_ann()}}
+{\footnotesize\ttfamily void free\+\_\+ann (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})}
+
+
+
+Frees the memory allocated to the network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The network. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ann_8c_a8238bec7244e26187277bc17fd61c87f}\label{ann_8c_a8238bec7244e26187277bc17fd61c87f} 
+\index{ann.c@{ann.c}!loss\_fn@{loss\_fn}}
+\index{loss\_fn@{loss\_fn}!ann.c@{ann.c}}
+\doxysubsubsection{\texorpdfstring{loss\_fn()}{loss\_fn()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} loss\+\_\+fn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{yhat,  }\item[{double}]{y,  }\item[{\mbox{\hyperlink{ann_8h_a2fe070419e926112e1be023b50242897}{LOSS}}}]{loss,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Calculates the loss of the network (classification only). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em yhat} & The output of the network. \\
+\hline
+{\em y} & The target class. \\
+\hline
+{\em loss} & The loss function. \\
+\hline
+{\em size} & The size of the output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The loss. 
+\end{DoxyReturn}
+\Hypertarget{ann_8c_ab486afba8050f59804781fd2c88850ab}\label{ann_8c_ab486afba8050f59804781fd2c88850ab} 
+\index{ann.c@{ann.c}!loss\_fn\_nograd@{loss\_fn\_nograd}}
+\index{loss\_fn\_nograd@{loss\_fn\_nograd}!ann.c@{ann.c}}
+\doxysubsubsection{\texorpdfstring{loss\_fn\_nograd()}{loss\_fn\_nograd()}}
+{\footnotesize\ttfamily double loss\+\_\+fn\+\_\+nograd (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{yhat,  }\item[{double}]{y,  }\item[{\mbox{\hyperlink{ann_8h_a2fe070419e926112e1be023b50242897}{LOSS}}}]{loss,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Calculates the loss of the network (classification only) without values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em yhat} & The output of the network. \\
+\hline
+{\em y} & The target class. \\
+\hline
+{\em loss} & The loss function. \\
+\hline
+{\em size} & The size of the output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The loss. 
+\end{DoxyReturn}
+\Hypertarget{ann_8c_a0f8d6e259497735833c9dc0b129bf15b}\label{ann_8c_a0f8d6e259497735833c9dc0b129bf15b} 
+\index{ann.c@{ann.c}!predict@{predict}}
+\index{predict@{predict}!ann.c@{ann.c}}
+\doxysubsubsection{\texorpdfstring{predict()}{predict()}}
+{\footnotesize\ttfamily int predict (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}}]{n,  }\item[{double \texorpdfstring{$\ast$}{*}}]{x,  }\item[{int}]{classes }\end{DoxyParamCaption})}
+
+
+
+Predicts the class of an input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The network. \\
+\hline
+{\em x} & The input. \\
+\hline
+{\em classes} & The number of classes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The predicted class. 
+\end{DoxyReturn}
+\Hypertarget{ann_8c_ac84fde94ff69532afcdf27cda29a4c90}\label{ann_8c_ac84fde94ff69532afcdf27cda29a4c90} 
+\index{ann.c@{ann.c}!regularization@{regularization}}
+\index{regularization@{regularization}!ann.c@{ann.c}}
+\doxysubsubsection{\texorpdfstring{regularization()}{regularization()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} regularization (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}}]{a,  }\item[{\mbox{\hyperlink{neuron_8h_ae0f774b9119326109e149ba5e323dca0}{REG}}}]{reg,  }\item[{double}]{c }\end{DoxyParamCaption})}
+
+
+
+Calculates the regularization term. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The network. \\
+\hline
+{\em reg} & The regularization type. \\
+\hline
+{\em c} & The regularization coefficient. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ann_8c_a424ebb303eff3db52042cf0ee341b799}\label{ann_8c_a424ebb303eff3db52042cf0ee341b799} 
+\index{ann.c@{ann.c}!zero\_grad@{zero\_grad}}
+\index{zero\_grad@{zero\_grad}!ann.c@{ann.c}}
+\doxysubsubsection{\texorpdfstring{zero\_grad()}{zero\_grad()}}
+{\footnotesize\ttfamily void zero\+\_\+grad (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})}
+
+
+
+Sets the gradients of the network to zero. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The network. \\
+\hline
+\end{DoxyParams}

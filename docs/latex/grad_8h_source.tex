@@ -1,0 +1,129 @@
+\doxysection{grad.\+h}
+\hypertarget{grad_8h_source}{}\label{grad_8h_source}\index{utils/grad.h@{utils/grad.h}}
+\mbox{\hyperlink{grad_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ \_\_GRAD\_H\_\_}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ \_\_GRAD\_H\_\_}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{grad_8h_af79e143373fa4bf4e74e8718ea5c1dac}{operation\_enum}}\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ ADD,}
+\DoxyCodeLine{00026\ \ \ \ \ MUL,}
+\DoxyCodeLine{00027\ \ \ \ \ POW,}
+\DoxyCodeLine{00028\ \ \ \ \ MOD,}
+\DoxyCodeLine{00029\ \ \ \ \ EXP,}
+\DoxyCodeLine{00030\ \ \ \ \ LOG,}
+\DoxyCodeLine{00031\ \ \ \ \ RELU,}
+\DoxyCodeLine{00032\ \ \ \ \ TANH,}
+\DoxyCodeLine{00033\ \ \ \ \ SIGMOID,}
+\DoxyCodeLine{00034\ \ \ \ \ SOFTMAX,}
+\DoxyCodeLine{00035\ \ \ \ \ CONST,}
+\DoxyCodeLine{00036\ \ \ \ \ MAX}
+\DoxyCodeLine{00037\ \}\ \mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}};\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structparam__struct}{param\_struct}}\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{double}\ val;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{double}\ grad;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{double}\ momentum;}
+\DoxyCodeLine{00046\ \}\ \mbox{\hyperlink{grad_8h_a62e8796a5f167ad64e81de0d85b14195}{PARAM}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvalue__struct}{value\_struct}}\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{double}\ val;}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{double}\ grad;}
+\DoxyCodeLine{00055\ \ \ \ \ void\ (*backward)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{structvalue__struct}{value\_struct}}\ *);}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}}\ op;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvalue__struct}{value\_struct}}\ *left;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvalue__struct}{value\_struct}}\ *right;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ visited;}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{structparam__struct}{PARAM}}\ *param;}
+\DoxyCodeLine{00061\ \}\ \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode__struct}{node\_struct}}\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *value;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnode__struct}{node\_struct}}\ *next;}
+\DoxyCodeLine{00070\ \}\ \mbox{\hyperlink{grad_8h_a76372fcbe42b7ec35314cd6ccf6ad936}{NODE}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{//\ Operations}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00080\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{grad_8h_a979f94d68c7dd0f90886bf8f1ca6d281}{add}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *a,\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *b);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00088\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{grad_8h_ae09698dc56de58700c538e434966411c}{mul}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *a,\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *b);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00096\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{grad_8h_a097ad1433e6997e327190dc9872f38be}{power}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *a,\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *b);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00103\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{grad_8h_aabaf501f2f098452b69efe5ac1e9f803}{mod}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *a);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00110\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{grad_8h_a2fba5bd223dfd977e29e06c1bf09c86c}{ex}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *a);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00117\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{grad_8h_a8687495db5d3c43abc915986330268e2}{lg}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *a);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00124\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{grad_8h_a37d1059e4c79542e8386c6478368f738}{relu}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *a);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00131\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{grad_8h_af192073442d9fc1831078a6eff0b02fb}{tanhyp}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *a);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00138\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{grad_8h_aa9d0dbef8276edff4902b24bc172a5e1}{sigmoid}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *a);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00146\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{grad_8h_a11c8b471e20b05e863dac35b79555add}{sub}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *a,\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *b);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00154\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{grad_8h_afb455c69633b9db26755cff1338364e5}{divide}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *a,\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *b);}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00161\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{grad_8h_aeb227010e02bb2f2fe31a818c3239d5d}{neg}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *a);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00169\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ **\mbox{\hyperlink{grad_8h_a65622353a34454035787039129583c37}{softmax}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ **x,\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00177\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{grad_8h_adcdda57f19beefe4681b34b27a5da465}{max}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *a,\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *b);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{comment}{//\ Backward\ Functions}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00185\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{grad_8h_a3389b4b0f5642f18fa442347b92aacd0}{add\_backward}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *v);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00191\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{grad_8h_a121d55508ad4ec3ff38cb062bdd462e1}{mul\_backward}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *v);}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00197\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{grad_8h_abef224ae4a711af0bf738a535b4f7b2d}{power\_backward}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *v);}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00203\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{grad_8h_a521d39ab87b0c57030dfcc66a7ab0120}{mod\_backward}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *v);}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00209\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{grad_8h_acc086c114ecdd2b608ec97a1e63604a4}{ex\_backward}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *v);}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00215\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{grad_8h_aa8815e5fc34b556e0c52a3ffa3337717}{lg\_backward}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *v);}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00221\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{grad_8h_af22cde12ad67201d0913f3b6cfffb466}{relu\_backward}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *v);}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00227\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{grad_8h_ac7a52228ec78a35e105c345aae3b8377}{tanh\_backward}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *v);}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00233\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{grad_8h_a5128703d872f1f69db897df678d7d8b8}{sigmoid\_backward}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *v);}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00239\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{grad_8h_a8558b5858de7f19bb4440902ea3e7aa3}{backward}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *v);\ }
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{comment}{//\ Helper\ Functions}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00248\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{grad_8h_a103bfdfab2f6606e78d74ad603bea305}{constant}}(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00255\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{grad_8h_a2f16f2bf16d5979a0d2c8c54a1e37115}{parameter}}(\mbox{\hyperlink{structparam__struct}{PARAM}}\ *p);}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00262\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{grad_8h_a5aaef8c4336c3a5a517c93e527963905}{build\_topological\_order}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *v,\ \mbox{\hyperlink{structnode__struct}{NODE}}\ **head);}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00269\ \mbox{\hyperlink{structnode__struct}{NODE}}\ *\mbox{\hyperlink{grad_8h_ae539f484679cf8cc08a1438b5367cb3b}{build\_node}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ *v);}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00277\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ **\mbox{\hyperlink{grad_8h_abb7fc55c58844aa865b4dfee496a8320}{value\_array}}(\textcolor{keywordtype}{double}\ *arr,\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00287\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{grad_8h_add8f97ff3df336a313c2cb3e5f545862}{argmax}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ **x,\ \textcolor{keywordtype}{int}\ size,\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ **out,\ \textcolor{keywordtype}{int}\ *idx);}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \textcolor{comment}{//\ Graph\ Functions}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00295\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{grad_8h_a315d0d22869fd2959c1ecad513e17928}{free\_values}}(\mbox{\hyperlink{structvalue__struct}{VALUE}}\ **v);}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_GRAD\_H\_\_}}
+
+\end{DoxyCode}

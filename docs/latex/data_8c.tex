@@ -1,0 +1,112 @@
+\doxysection{load/data.c File Reference}
+\hypertarget{data_8c}{}\label{data_8c}\index{load/data.c@{load/data.c}}
+
+
+Functions to load and free data from the MNIST dataset.  
+
+
+{\ttfamily \#include "{}data.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{data_8c_a41d31ce25ec5bae20777e81dc1a70342}{print\+\_\+image}} (double \texorpdfstring{$\ast$}{*}image, int label)
+\begin{DoxyCompactList}\small\item\em Prints the image to the console. \end{DoxyCompactList}\item 
+double \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{data_8c_aed3841b2dfab345b136e350560834092}{read\+\_\+image}} (FILE \texorpdfstring{$\ast$}{*}file, int \texorpdfstring{$\ast$}{*}label)
+\begin{DoxyCompactList}\small\item\em Reads a single image from the file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{data_8c_a9582a7bd87f7c089c278005f699d4b72}{read\+\_\+csv}} (char \texorpdfstring{$\ast$}{*}path, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}images\+\_\+addr, int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}labels\+\_\+addr, int size)
+\begin{DoxyCompactList}\small\item\em Reads the CSV file and stores the images and labels. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{data_8c_a74e2fd8ee652c23d0ddef35a845b6579}{free\+\_\+images}} (double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}images, int \texorpdfstring{$\ast$}{*}labels, int size)
+\begin{DoxyCompactList}\small\item\em Frees the memory allocated to the images. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions to load and free data from the MNIST dataset. 
+
+This contains the implementations for the functions used to read and free data from the MNIST dataset in CSV format. It is used by the neural network in {\ttfamily \doxylink{mnist_8c}{mnist.\+c}}.
+
+\begin{DoxyAuthor}{Author}
+Vamsi Deeduvanu (vamsi10010) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{data_8c_a74e2fd8ee652c23d0ddef35a845b6579}\label{data_8c_a74e2fd8ee652c23d0ddef35a845b6579} 
+\index{data.c@{data.c}!free\_images@{free\_images}}
+\index{free\_images@{free\_images}!data.c@{data.c}}
+\doxysubsubsection{\texorpdfstring{free\_images()}{free\_images()}}
+{\footnotesize\ttfamily void free\+\_\+images (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{images,  }\item[{int \texorpdfstring{$\ast$}{*}}]{labels,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Frees the memory allocated to the images. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em images} & Pointer to the 2D array with flattened images \\
+\hline
+{\em labels} & Pointer to the array with labels of images \\
+\hline
+{\em size} & Number of images \\
+\hline
+\end{DoxyParams}
+\Hypertarget{data_8c_a41d31ce25ec5bae20777e81dc1a70342}\label{data_8c_a41d31ce25ec5bae20777e81dc1a70342} 
+\index{data.c@{data.c}!print\_image@{print\_image}}
+\index{print\_image@{print\_image}!data.c@{data.c}}
+\doxysubsubsection{\texorpdfstring{print\_image()}{print\_image()}}
+{\footnotesize\ttfamily void print\+\_\+image (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{image,  }\item[{int}]{label }\end{DoxyParamCaption})}
+
+
+
+Prints the image to the console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & Array of doubles corresponding to pixels of flattened image \\
+\hline
+{\em size} & Number of pixels in the image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{data_8c_a9582a7bd87f7c089c278005f699d4b72}\label{data_8c_a9582a7bd87f7c089c278005f699d4b72} 
+\index{data.c@{data.c}!read\_csv@{read\_csv}}
+\index{read\_csv@{read\_csv}!data.c@{data.c}}
+\doxysubsubsection{\texorpdfstring{read\_csv()}{read\_csv()}}
+{\footnotesize\ttfamily void read\+\_\+csv (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{images\+\_\+addr,  }\item[{int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{labels\+\_\+addr,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Reads the CSV file and stores the images and labels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Name of the CSV file with MNIST data \\
+\hline
+{\em images} & Pointer to the 2D array to store flattened images \\
+\hline
+{\em labels} & Pointer to the array to store labels of images \\
+\hline
+{\em size} & Number of images in the CSV file \\
+\hline
+\end{DoxyParams}
+\Hypertarget{data_8c_aed3841b2dfab345b136e350560834092}\label{data_8c_aed3841b2dfab345b136e350560834092} 
+\index{data.c@{data.c}!read\_image@{read\_image}}
+\index{read\_image@{read\_image}!data.c@{data.c}}
+\doxysubsubsection{\texorpdfstring{read\_image()}{read\_image()}}
+{\footnotesize\ttfamily double \texorpdfstring{$\ast$}{*} read\+\_\+image (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{file,  }\item[{int \texorpdfstring{$\ast$}{*}}]{label }\end{DoxyParamCaption})}
+
+
+
+Reads a single image from the file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fp} & File pointer to the CSV file with MNIST data \\
+\hline
+{\em size} & Pointer to the variable to store the label of the image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array of doubles corresponding to pixels of flattened image 
+\end{DoxyReturn}

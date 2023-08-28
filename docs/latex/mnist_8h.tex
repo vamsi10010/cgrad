@@ -1,0 +1,107 @@
+\doxysection{main/mnist.h File Reference}
+\hypertarget{mnist_8h}{}\label{mnist_8h}\index{main/mnist.h@{main/mnist.h}}
+
+
+Trains and tests a feedforward neural network on the MNIST dataset.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}../nn/ann.\+h"{}}\newline
+{\ttfamily \#include "{}../load/data.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{mnist_8h_ac60700ebcbc91e2a984d9593971cd17e}\label{mnist_8h_ac60700ebcbc91e2a984d9593971cd17e} 
+\#define {\bfseries NUM\+\_\+\+LAYERS}~3
+\item 
+\Hypertarget{mnist_8h_ac9d3b34ee7e35eab6a81ed21f18f6e64}\label{mnist_8h_ac9d3b34ee7e35eab6a81ed21f18f6e64} 
+\#define {\bfseries LEARNING\+\_\+\+RATE}~0.\+1
+\item 
+\Hypertarget{mnist_8h_ad455e60ecb4b0eba516ee2dd166bba1d}\label{mnist_8h_ad455e60ecb4b0eba516ee2dd166bba1d} 
+\#define {\bfseries EPOCHS}~3
+\item 
+\Hypertarget{mnist_8h_a19d7b5003e9cdac0e0b69076853ed2c0}\label{mnist_8h_a19d7b5003e9cdac0e0b69076853ed2c0} 
+\#define {\bfseries MOM\+\_\+\+COEFF}~0.\+9
+\item 
+\Hypertarget{mnist_8h_a01b9e3e1e08dbd491b991d76f831ecba}\label{mnist_8h_a01b9e3e1e08dbd491b991d76f831ecba} 
+\#define {\bfseries REG\+\_\+\+COEFF}~0.\+1
+\item 
+\Hypertarget{mnist_8h_a9ae2958e436c566413867028fc829ec0}\label{mnist_8h_a9ae2958e436c566413867028fc829ec0} 
+\#define {\bfseries BATCH\+\_\+\+SIZE}~32
+\item 
+\Hypertarget{mnist_8h_a894874fce4252e840e2412fd1dbfa4ea}\label{mnist_8h_a894874fce4252e840e2412fd1dbfa4ea} 
+\#define {\bfseries OUTPUT\+\_\+\+SIZE}~10
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{mnist_8h_aac418e1890b07d016763fca5e69cd9ce}{perm}} (int n)
+\begin{DoxyCompactList}\small\item\em Generates a random permutation of the integers from 0 to n -\/ 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mnist_8h_aff6325c2c4911fd06c20bb32ecefc64d}{train}} (\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}nn)
+\begin{DoxyCompactList}\small\item\em Trains the neural network on the MNIST dataset. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mnist_8h_a8afb6cc66c26cdd570c7400a3bfa8df4}{test}} (\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Tests the neural network on the MNIST dataset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Trains and tests a feedforward neural network on the MNIST dataset. 
+
+This contains the prototypes for the functions used to train and test a feedforward neural network on the MNIST dataset.
+
+\begin{DoxyAuthor}{Author}
+Vamsi Deeduvanu (vamsi10010) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{mnist_8h_aac418e1890b07d016763fca5e69cd9ce}\label{mnist_8h_aac418e1890b07d016763fca5e69cd9ce} 
+\index{mnist.h@{mnist.h}!perm@{perm}}
+\index{perm@{perm}!mnist.h@{mnist.h}}
+\doxysubsubsection{\texorpdfstring{perm()}{perm()}}
+{\footnotesize\ttfamily int \texorpdfstring{$\ast$}{*} perm (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Generates a random permutation of the integers from 0 to n -\/ 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of integers to permute. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the array of integers. 
+\end{DoxyReturn}
+\Hypertarget{mnist_8h_a8afb6cc66c26cdd570c7400a3bfa8df4}\label{mnist_8h_a8afb6cc66c26cdd570c7400a3bfa8df4} 
+\index{mnist.h@{mnist.h}!test@{test}}
+\index{test@{test}!mnist.h@{mnist.h}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily void test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}}]{nn }\end{DoxyParamCaption})}
+
+
+
+Tests the neural network on the MNIST dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nn} & The neural network. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{mnist_8h_aff6325c2c4911fd06c20bb32ecefc64d}\label{mnist_8h_aff6325c2c4911fd06c20bb32ecefc64d} 
+\index{mnist.h@{mnist.h}!train@{train}}
+\index{train@{train}!mnist.h@{mnist.h}}
+\doxysubsubsection{\texorpdfstring{train()}{train()}}
+{\footnotesize\ttfamily void train (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ann_8h_a6c719ff78fb660dee71eb60078e95315}{ANN}} \texorpdfstring{$\ast$}{*}}]{nn }\end{DoxyParamCaption})}
+
+
+
+Trains the neural network on the MNIST dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nn} & The neural network. \\
+\hline
+\end{DoxyParams}

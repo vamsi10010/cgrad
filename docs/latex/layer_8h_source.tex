@@ -1,0 +1,34 @@
+\doxysection{layer.\+h}
+\hypertarget{layer_8h_source}{}\label{layer_8h_source}\index{nn/layer.h@{nn/layer.h}}
+\mbox{\hyperlink{layer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ \_\_LAYER\_H\_\_}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ \_\_LAYER\_H\_\_}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}../utils/grad.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{neuron_8h}{neuron.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlayer__struct}{layer\_struct}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{structneuron__struct}{NEURON}}\ **neurons;}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}}\ activation;}
+\DoxyCodeLine{00023\ \}\ \mbox{\hyperlink{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}{LAYER}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00032\ \mbox{\hyperlink{structlayer__struct}{LAYER}}\ *\mbox{\hyperlink{layer_8h_a20fbaaa1d44dfec0da17c00135ca31af}{layer}}(\textcolor{keywordtype}{int}\ num\_inputs,\ \textcolor{keywordtype}{int}\ size,\ \mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}}\ activation);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ **\mbox{\hyperlink{layer_8h_ad93d4786fa709c8d233428c0bb57090f}{layer\_forward}}(\mbox{\hyperlink{structlayer__struct}{LAYER}}\ *l,\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ **x);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00049\ \mbox{\hyperlink{structvalue__struct}{VALUE}}\ *\mbox{\hyperlink{layer_8h_a94b27ace44b13c54d963573edc683df6}{layer\_regularization}}(\mbox{\hyperlink{structlayer__struct}{LAYER}}\ *l,\ \mbox{\hyperlink{neuron_8h_ae0f774b9119326109e149ba5e323dca0}{REG}}\ reg,\ \textcolor{keywordtype}{double}\ c);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{layer_8h_a8dfde077437dce9b13cccf761cfc4d70}{layer\_descend}}(\mbox{\hyperlink{structlayer__struct}{LAYER}}\ *l,\ \textcolor{keywordtype}{double}\ lr,\ \textcolor{keywordtype}{bool}\ momentum);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{layer_8h_ae2c523fce4b8aacb853c877610bf664e}{free\_layer}}(\mbox{\hyperlink{structlayer__struct}{LAYER}}\ *l);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{layer_8h_aba59b6a16c6ce99ad337b2000781c1c6}{layer\_zero\_grad}}(\mbox{\hyperlink{structlayer__struct}{LAYER}}\ *l);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{double}\ *\mbox{\hyperlink{layer_8h_a4039b4f0a53faa320dc2454029b8d1e0}{layer\_nograd\_forward}}(\mbox{\hyperlink{structlayer__struct}{LAYER}}\ *l,\ \textcolor{keywordtype}{double}\ *x);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_LAYER\_H\_\_}}
+
+\end{DoxyCode}

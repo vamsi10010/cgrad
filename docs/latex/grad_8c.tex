@@ -1,0 +1,612 @@
+\doxysection{utils/grad.c File Reference}
+\hypertarget{grad_8c}{}\label{grad_8c}\index{utils/grad.c@{utils/grad.c}}
+
+
+Functions for backpropagation.  
+
+
+{\ttfamily \#include "{}grad.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_a81138bfc06d30f8cb0097846b5b719ee}{constant}} (double a)
+\begin{DoxyCompactList}\small\item\em Creates a value from a double. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_a2f16f2bf16d5979a0d2c8c54a1e37115}{parameter}} (\mbox{\hyperlink{grad_8h_a62e8796a5f167ad64e81de0d85b14195}{PARAM}} \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Creates a value from a parameter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_a979f94d68c7dd0f90886bf8f1ca6d281}{add}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Adds two values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grad_8c_a3389b4b0f5642f18fa442347b92aacd0}{add\+\_\+backward}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}v)
+\begin{DoxyCompactList}\small\item\em Backward pass for an addition operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_ae09698dc56de58700c538e434966411c}{mul}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Multiplies two values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grad_8c_a121d55508ad4ec3ff38cb062bdd462e1}{mul\+\_\+backward}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}v)
+\begin{DoxyCompactList}\small\item\em Backward pass for a multiplication operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_a097ad1433e6997e327190dc9872f38be}{power}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Raises a value to a power. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grad_8c_abef224ae4a711af0bf738a535b4f7b2d}{power\+\_\+backward}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}v)
+\begin{DoxyCompactList}\small\item\em Backward pass for a power operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_aabaf501f2f098452b69efe5ac1e9f803}{mod}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Takes the modulus of a value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grad_8c_a521d39ab87b0c57030dfcc66a7ab0120}{mod\+\_\+backward}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}v)
+\begin{DoxyCompactList}\small\item\em Backward pass for a modulus operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_a2fba5bd223dfd977e29e06c1bf09c86c}{ex}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Takes the exponential (e \texorpdfstring{$^\wedge$}{\string^} a) of a value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grad_8c_acc086c114ecdd2b608ec97a1e63604a4}{ex\+\_\+backward}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}v)
+\begin{DoxyCompactList}\small\item\em Backward pass for an exponential operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_a8687495db5d3c43abc915986330268e2}{lg}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Takes the natural logarithm of a value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grad_8c_aa8815e5fc34b556e0c52a3ffa3337717}{lg\+\_\+backward}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}v)
+\begin{DoxyCompactList}\small\item\em Backward pass for a natural logarithm operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_a37d1059e4c79542e8386c6478368f738}{relu}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Takes the rectified linear unit of a value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grad_8c_af22cde12ad67201d0913f3b6cfffb466}{relu\+\_\+backward}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}v)
+\begin{DoxyCompactList}\small\item\em Backward pass for a RELU operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_af192073442d9fc1831078a6eff0b02fb}{tanhyp}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Takes the hyperbolic tangent of a value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grad_8c_ac7a52228ec78a35e105c345aae3b8377}{tanh\+\_\+backward}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}v)
+\begin{DoxyCompactList}\small\item\em Backward pass for a tanh operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_aa9d0dbef8276edff4902b24bc172a5e1}{sigmoid}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Takes the sigmoid of a value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grad_8c_a5128703d872f1f69db897df678d7d8b8}{sigmoid\+\_\+backward}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}v)
+\begin{DoxyCompactList}\small\item\em Backward pass for a sigmoid operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_a11c8b471e20b05e863dac35b79555add}{sub}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Takes the difference of two values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_afb455c69633b9db26755cff1338364e5}{divide}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Divides of two values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_aeb227010e02bb2f2fe31a818c3239d5d}{neg}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em Takes the negation (-\/a) of a value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_a65622353a34454035787039129583c37}{softmax}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}x, int size)
+\begin{DoxyCompactList}\small\item\em Applies softmax function to an array of values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grad_8c_a5aaef8c4336c3a5a517c93e527963905}{build\+\_\+topological\+\_\+order}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}v, \mbox{\hyperlink{grad_8h_a76372fcbe42b7ec35314cd6ccf6ad936}{NODE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}head)
+\begin{DoxyCompactList}\small\item\em Sorts a DAG of values into topological order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grad_8c_a8558b5858de7f19bb4440902ea3e7aa3}{backward}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}v)
+\begin{DoxyCompactList}\small\item\em Backward pass over entire computational graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grad_8c_a315d0d22869fd2959c1ecad513e17928}{free\+\_\+values}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}v)
+\begin{DoxyCompactList}\small\item\em Frees all values under input value in the graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_abb7fc55c58844aa865b4dfee496a8320}{value\+\_\+array}} (double \texorpdfstring{$\ast$}{*}arr, int size)
+\begin{DoxyCompactList}\small\item\em Creates an array of values from an array of doubles. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{grad_8c_adcdda57f19beefe4681b34b27a5da465}{max}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Finds the maximum of two values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grad_8c_ac4c910b5bfe0f3ed7405502eab3cc0e1}{argmax}} (\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}args, int size, \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}out, int \texorpdfstring{$\ast$}{*}idx)
+\begin{DoxyCompactList}\small\item\em Finds the index of the maximum value in an array of values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions for backpropagation. 
+
+This contains the function implementations to perform bacpropagation on an equation.
+
+\begin{DoxyAuthor}{Author}
+Vamsi Deeduvanu (vamsi10010) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{grad_8c_a979f94d68c7dd0f90886bf8f1ca6d281}\label{grad_8c_a979f94d68c7dd0f90886bf8f1ca6d281} 
+\index{grad.c@{grad.c}!add@{add}}
+\index{add@{add}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{a,  }\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{b }\end{DoxyParamCaption})}
+
+
+
+Adds two values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The first value. \\
+\hline
+{\em b} & The second value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sum of the two values. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_a3389b4b0f5642f18fa442347b92aacd0}\label{grad_8c_a3389b4b0f5642f18fa442347b92aacd0} 
+\index{grad.c@{grad.c}!add\_backward@{add\_backward}}
+\index{add\_backward@{add\_backward}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{add\_backward()}{add\_backward()}}
+{\footnotesize\ttfamily void add\+\_\+backward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+
+
+Backward pass for an addition operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{grad_8c_ac4c910b5bfe0f3ed7405502eab3cc0e1}\label{grad_8c_ac4c910b5bfe0f3ed7405502eab3cc0e1} 
+\index{grad.c@{grad.c}!argmax@{argmax}}
+\index{argmax@{argmax}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{argmax()}{argmax()}}
+{\footnotesize\ttfamily void argmax (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{x,  }\item[{int}]{size,  }\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{out,  }\item[{int \texorpdfstring{$\ast$}{*}}]{idx }\end{DoxyParamCaption})}
+
+
+
+Finds the index of the maximum value in an array of values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The array of values. \\
+\hline
+{\em size} & The size of the array. \\
+\hline
+{\em out} & Pointer to output value. \\
+\hline
+{\em idx} & Pointer to output index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the maximum value. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_a8558b5858de7f19bb4440902ea3e7aa3}\label{grad_8c_a8558b5858de7f19bb4440902ea3e7aa3} 
+\index{grad.c@{grad.c}!backward@{backward}}
+\index{backward@{backward}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{backward()}{backward()}}
+{\footnotesize\ttfamily void backward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+
+
+Backward pass over entire computational graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{grad_8c_a5aaef8c4336c3a5a517c93e527963905}\label{grad_8c_a5aaef8c4336c3a5a517c93e527963905} 
+\index{grad.c@{grad.c}!build\_topological\_order@{build\_topological\_order}}
+\index{build\_topological\_order@{build\_topological\_order}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{build\_topological\_order()}{build\_topological\_order()}}
+{\footnotesize\ttfamily void build\+\_\+topological\+\_\+order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{v,  }\item[{\mbox{\hyperlink{grad_8h_a76372fcbe42b7ec35314cd6ccf6ad936}{NODE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{head }\end{DoxyParamCaption})}
+
+
+
+Sorts a DAG of values into topological order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The head value. \\
+\hline
+{\em head} & The head of the linked list. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{grad_8c_a81138bfc06d30f8cb0097846b5b719ee}\label{grad_8c_a81138bfc06d30f8cb0097846b5b719ee} 
+\index{grad.c@{grad.c}!constant@{constant}}
+\index{constant@{constant}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{constant()}{constant()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} constant (\begin{DoxyParamCaption}\item[{double}]{a }\end{DoxyParamCaption})}
+
+
+
+Creates a value from a double. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The input double. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The constant value. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_afb455c69633b9db26755cff1338364e5}\label{grad_8c_afb455c69633b9db26755cff1338364e5} 
+\index{grad.c@{grad.c}!divide@{divide}}
+\index{divide@{divide}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{divide()}{divide()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} divide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{a,  }\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{b }\end{DoxyParamCaption})}
+
+
+
+Divides of two values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The numerator value. \\
+\hline
+{\em b} & The denominator value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The quotient of the two values. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_a2fba5bd223dfd977e29e06c1bf09c86c}\label{grad_8c_a2fba5bd223dfd977e29e06c1bf09c86c} 
+\index{grad.c@{grad.c}!ex@{ex}}
+\index{ex@{ex}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{ex()}{ex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} ex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})}
+
+
+
+Takes the exponential (e \texorpdfstring{$^\wedge$}{\string^} a) of a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The exponential of the value. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_acc086c114ecdd2b608ec97a1e63604a4}\label{grad_8c_acc086c114ecdd2b608ec97a1e63604a4} 
+\index{grad.c@{grad.c}!ex\_backward@{ex\_backward}}
+\index{ex\_backward@{ex\_backward}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{ex\_backward()}{ex\_backward()}}
+{\footnotesize\ttfamily void ex\+\_\+backward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+
+
+Backward pass for an exponential operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{grad_8c_a315d0d22869fd2959c1ecad513e17928}\label{grad_8c_a315d0d22869fd2959c1ecad513e17928} 
+\index{grad.c@{grad.c}!free\_values@{free\_values}}
+\index{free\_values@{free\_values}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{free\_values()}{free\_values()}}
+{\footnotesize\ttfamily void free\+\_\+values (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+
+
+Frees all values under input value in the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The input value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{grad_8c_a8687495db5d3c43abc915986330268e2}\label{grad_8c_a8687495db5d3c43abc915986330268e2} 
+\index{grad.c@{grad.c}!lg@{lg}}
+\index{lg@{lg}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{lg()}{lg()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} lg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})}
+
+
+
+Takes the natural logarithm of a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The natural logarithm of the value. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_aa8815e5fc34b556e0c52a3ffa3337717}\label{grad_8c_aa8815e5fc34b556e0c52a3ffa3337717} 
+\index{grad.c@{grad.c}!lg\_backward@{lg\_backward}}
+\index{lg\_backward@{lg\_backward}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{lg\_backward()}{lg\_backward()}}
+{\footnotesize\ttfamily void lg\+\_\+backward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+
+
+Backward pass for a natural logarithm operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{grad_8c_adcdda57f19beefe4681b34b27a5da465}\label{grad_8c_adcdda57f19beefe4681b34b27a5da465} 
+\index{grad.c@{grad.c}!max@{max}}
+\index{max@{max}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} max (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{a,  }\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{b }\end{DoxyParamCaption})}
+
+
+
+Finds the maximum of two values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The first value. \\
+\hline
+{\em b} & The second value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The maximum of the two values. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_aabaf501f2f098452b69efe5ac1e9f803}\label{grad_8c_aabaf501f2f098452b69efe5ac1e9f803} 
+\index{grad.c@{grad.c}!mod@{mod}}
+\index{mod@{mod}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{mod()}{mod()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} mod (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})}
+
+
+
+Takes the modulus of a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The modulus of the value. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_a521d39ab87b0c57030dfcc66a7ab0120}\label{grad_8c_a521d39ab87b0c57030dfcc66a7ab0120} 
+\index{grad.c@{grad.c}!mod\_backward@{mod\_backward}}
+\index{mod\_backward@{mod\_backward}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{mod\_backward()}{mod\_backward()}}
+{\footnotesize\ttfamily void mod\+\_\+backward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+
+
+Backward pass for a modulus operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{grad_8c_ae09698dc56de58700c538e434966411c}\label{grad_8c_ae09698dc56de58700c538e434966411c} 
+\index{grad.c@{grad.c}!mul@{mul}}
+\index{mul@{mul}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{mul()}{mul()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} mul (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{a,  }\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{b }\end{DoxyParamCaption})}
+
+
+
+Multiplies two values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The first value. \\
+\hline
+{\em b} & The second value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The product of the two values. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_a121d55508ad4ec3ff38cb062bdd462e1}\label{grad_8c_a121d55508ad4ec3ff38cb062bdd462e1} 
+\index{grad.c@{grad.c}!mul\_backward@{mul\_backward}}
+\index{mul\_backward@{mul\_backward}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{mul\_backward()}{mul\_backward()}}
+{\footnotesize\ttfamily void mul\+\_\+backward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+
+
+Backward pass for a multiplication operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{grad_8c_aeb227010e02bb2f2fe31a818c3239d5d}\label{grad_8c_aeb227010e02bb2f2fe31a818c3239d5d} 
+\index{grad.c@{grad.c}!neg@{neg}}
+\index{neg@{neg}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{neg()}{neg()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} neg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})}
+
+
+
+Takes the negation (-\/a) of a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The negation of the value. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_a2f16f2bf16d5979a0d2c8c54a1e37115}\label{grad_8c_a2f16f2bf16d5979a0d2c8c54a1e37115} 
+\index{grad.c@{grad.c}!parameter@{parameter}}
+\index{parameter@{parameter}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{parameter()}{parameter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} parameter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_a62e8796a5f167ad64e81de0d85b14195}{PARAM}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
+
+
+
+Creates a value from a parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The input parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_a097ad1433e6997e327190dc9872f38be}\label{grad_8c_a097ad1433e6997e327190dc9872f38be} 
+\index{grad.c@{grad.c}!power@{power}}
+\index{power@{power}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{power()}{power()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} power (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{a,  }\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{b }\end{DoxyParamCaption})}
+
+
+
+Raises a value to a power. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The value. \\
+\hline
+{\em b} & The power. Must be a constant value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value raised to the power. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_abef224ae4a711af0bf738a535b4f7b2d}\label{grad_8c_abef224ae4a711af0bf738a535b4f7b2d} 
+\index{grad.c@{grad.c}!power\_backward@{power\_backward}}
+\index{power\_backward@{power\_backward}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{power\_backward()}{power\_backward()}}
+{\footnotesize\ttfamily void power\+\_\+backward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+
+
+Backward pass for a power operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{grad_8c_a37d1059e4c79542e8386c6478368f738}\label{grad_8c_a37d1059e4c79542e8386c6478368f738} 
+\index{grad.c@{grad.c}!relu@{relu}}
+\index{relu@{relu}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{relu()}{relu()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} relu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})}
+
+
+
+Takes the rectified linear unit of a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The RELU of the value. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_af22cde12ad67201d0913f3b6cfffb466}\label{grad_8c_af22cde12ad67201d0913f3b6cfffb466} 
+\index{grad.c@{grad.c}!relu\_backward@{relu\_backward}}
+\index{relu\_backward@{relu\_backward}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{relu\_backward()}{relu\_backward()}}
+{\footnotesize\ttfamily void relu\+\_\+backward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+
+
+Backward pass for a RELU operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{grad_8c_aa9d0dbef8276edff4902b24bc172a5e1}\label{grad_8c_aa9d0dbef8276edff4902b24bc172a5e1} 
+\index{grad.c@{grad.c}!sigmoid@{sigmoid}}
+\index{sigmoid@{sigmoid}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{sigmoid()}{sigmoid()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} sigmoid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})}
+
+
+
+Takes the sigmoid of a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sigmoid of the value. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_a5128703d872f1f69db897df678d7d8b8}\label{grad_8c_a5128703d872f1f69db897df678d7d8b8} 
+\index{grad.c@{grad.c}!sigmoid\_backward@{sigmoid\_backward}}
+\index{sigmoid\_backward@{sigmoid\_backward}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{sigmoid\_backward()}{sigmoid\_backward()}}
+{\footnotesize\ttfamily void sigmoid\+\_\+backward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+
+
+Backward pass for a sigmoid operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{grad_8c_a65622353a34454035787039129583c37}\label{grad_8c_a65622353a34454035787039129583c37} 
+\index{grad.c@{grad.c}!softmax@{softmax}}
+\index{softmax@{softmax}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{softmax()}{softmax()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} softmax (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{x,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Applies softmax function to an array of values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The array of values. \\
+\hline
+{\em size} & The size of the array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new array of values with softmax applied. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_a11c8b471e20b05e863dac35b79555add}\label{grad_8c_a11c8b471e20b05e863dac35b79555add} 
+\index{grad.c@{grad.c}!sub@{sub}}
+\index{sub@{sub}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{sub()}{sub()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} sub (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{a,  }\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{b }\end{DoxyParamCaption})}
+
+
+
+Takes the difference of two values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The first value. \\
+\hline
+{\em b} & The second value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The difference of the two values. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_ac7a52228ec78a35e105c345aae3b8377}\label{grad_8c_ac7a52228ec78a35e105c345aae3b8377} 
+\index{grad.c@{grad.c}!tanh\_backward@{tanh\_backward}}
+\index{tanh\_backward@{tanh\_backward}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{tanh\_backward()}{tanh\_backward()}}
+{\footnotesize\ttfamily void tanh\+\_\+backward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+
+
+Backward pass for a tanh operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{grad_8c_af192073442d9fc1831078a6eff0b02fb}\label{grad_8c_af192073442d9fc1831078a6eff0b02fb} 
+\index{grad.c@{grad.c}!tanhyp@{tanhyp}}
+\index{tanhyp@{tanhyp}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{tanhyp()}{tanhyp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} tanhyp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})}
+
+
+
+Takes the hyperbolic tangent of a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The tanh of the value. 
+\end{DoxyReturn}
+\Hypertarget{grad_8c_abb7fc55c58844aa865b4dfee496a8320}\label{grad_8c_abb7fc55c58844aa865b4dfee496a8320} 
+\index{grad.c@{grad.c}!value\_array@{value\_array}}
+\index{value\_array@{value\_array}!grad.c@{grad.c}}
+\doxysubsubsection{\texorpdfstring{value\_array()}{value\_array()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} value\+\_\+array (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{arr,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Creates an array of values from an array of doubles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & The array of doubles. \\
+\hline
+{\em size} & The size of the array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The array of values. 
+\end{DoxyReturn}

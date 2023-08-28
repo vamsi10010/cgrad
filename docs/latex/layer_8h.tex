@@ -1,0 +1,183 @@
+\doxysection{nn/layer.h File Reference}
+\hypertarget{layer_8h}{}\label{layer_8h}\index{nn/layer.h@{nn/layer.h}}
+
+
+Header file for a layer of neurons in a feedforward neural network.  
+
+
+{\ttfamily \#include "{}../utils/grad.\+h"{}}\newline
+{\ttfamily \#include "{}neuron.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlayer__struct}{layer\+\_\+struct}}
+\begin{DoxyCompactList}\small\item\em A layer of neurons in a feedforward neural network. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}\label{layer_8h_abc8cd33c5000bb5d521aee4590f33de9} 
+typedef struct \mbox{\hyperlink{structlayer__struct}{layer\+\_\+struct}} {\bfseries LAYER}
+\begin{DoxyCompactList}\small\item\em A layer of neurons in a feedforward neural network. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}{LAYER}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{layer_8h_a20fbaaa1d44dfec0da17c00135ca31af}{layer}} (int num\+\_\+inputs, int size, \mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}} activation)
+\begin{DoxyCompactList}\small\item\em Creates a layer of neurons. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{layer_8h_ad93d4786fa709c8d233428c0bb57090f}{layer\+\_\+forward}} (\mbox{\hyperlink{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}{LAYER}} \texorpdfstring{$\ast$}{*}l, \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}x)
+\begin{DoxyCompactList}\small\item\em Performs a forward pass on the layer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{layer_8h_a94b27ace44b13c54d963573edc683df6}{layer\+\_\+regularization}} (\mbox{\hyperlink{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}{LAYER}} \texorpdfstring{$\ast$}{*}l, \mbox{\hyperlink{neuron_8h_ae0f774b9119326109e149ba5e323dca0}{REG}} reg, double c)
+\begin{DoxyCompactList}\small\item\em Calculates the regularization term for the layer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{layer_8h_a8dfde077437dce9b13cccf761cfc4d70}{layer\+\_\+descend}} (\mbox{\hyperlink{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}{LAYER}} \texorpdfstring{$\ast$}{*}l, double lr, bool momentum)
+\begin{DoxyCompactList}\small\item\em Performs a gradient descent step on the layer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{layer_8h_ae2c523fce4b8aacb853c877610bf664e}{free\+\_\+layer}} (\mbox{\hyperlink{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}{LAYER}} \texorpdfstring{$\ast$}{*}l)
+\begin{DoxyCompactList}\small\item\em Frees the memory allocated to the layer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{layer_8h_aba59b6a16c6ce99ad337b2000781c1c6}{layer\+\_\+zero\+\_\+grad}} (\mbox{\hyperlink{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}{LAYER}} \texorpdfstring{$\ast$}{*}l)
+\begin{DoxyCompactList}\small\item\em Sets the gradients of the layer to zero. \end{DoxyCompactList}\item 
+double \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{layer_8h_a4039b4f0a53faa320dc2454029b8d1e0}{layer\+\_\+nograd\+\_\+forward}} (\mbox{\hyperlink{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}{LAYER}} \texorpdfstring{$\ast$}{*}l, double \texorpdfstring{$\ast$}{*}x)
+\begin{DoxyCompactList}\small\item\em Performs a forward pass on the layer without creating a graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for a layer of neurons in a feedforward neural network. 
+
+This contains the prototypes for the functions used to create and manipulate a layer of neurons in a feedforward neural network.
+
+\begin{DoxyAuthor}{Author}
+Vamsi Deeduvanu (vamsi10010) 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{layer_8h_ae2c523fce4b8aacb853c877610bf664e}\label{layer_8h_ae2c523fce4b8aacb853c877610bf664e} 
+\index{layer.h@{layer.h}!free\_layer@{free\_layer}}
+\index{free\_layer@{free\_layer}!layer.h@{layer.h}}
+\doxysubsubsection{\texorpdfstring{free\_layer()}{free\_layer()}}
+{\footnotesize\ttfamily void free\+\_\+layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}{LAYER}} \texorpdfstring{$\ast$}{*}}]{l }\end{DoxyParamCaption})}
+
+
+
+Frees the memory allocated to the layer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & The layer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{layer_8h_a20fbaaa1d44dfec0da17c00135ca31af}\label{layer_8h_a20fbaaa1d44dfec0da17c00135ca31af} 
+\index{layer.h@{layer.h}!layer@{layer}}
+\index{layer@{layer}!layer.h@{layer.h}}
+\doxysubsubsection{\texorpdfstring{layer()}{layer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}{LAYER}} \texorpdfstring{$\ast$}{*} layer (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+inputs,  }\item[{int}]{size,  }\item[{\mbox{\hyperlink{grad_8h_aa7a5dd1d95992d4b46188af9c62ae11b}{OPERATION}}}]{activation }\end{DoxyParamCaption})}
+
+
+
+Creates a layer of neurons. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+inputs} & The number of inputs to each neuron in the layer. \\
+\hline
+{\em size} & The number of neurons in the layer. \\
+\hline
+{\em activation} & The activation function for the layer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the layer. 
+\end{DoxyReturn}
+\Hypertarget{layer_8h_a8dfde077437dce9b13cccf761cfc4d70}\label{layer_8h_a8dfde077437dce9b13cccf761cfc4d70} 
+\index{layer.h@{layer.h}!layer\_descend@{layer\_descend}}
+\index{layer\_descend@{layer\_descend}!layer.h@{layer.h}}
+\doxysubsubsection{\texorpdfstring{layer\_descend()}{layer\_descend()}}
+{\footnotesize\ttfamily void layer\+\_\+descend (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}{LAYER}} \texorpdfstring{$\ast$}{*}}]{l,  }\item[{double}]{lr,  }\item[{bool}]{momentum }\end{DoxyParamCaption})}
+
+
+
+Performs a gradient descent step on the layer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & The layer. \\
+\hline
+{\em lr} & The learning rate. \\
+\hline
+{\em momentum} & Whether to use momentum. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{layer_8h_ad93d4786fa709c8d233428c0bb57090f}\label{layer_8h_ad93d4786fa709c8d233428c0bb57090f} 
+\index{layer.h@{layer.h}!layer\_forward@{layer\_forward}}
+\index{layer\_forward@{layer\_forward}!layer.h@{layer.h}}
+\doxysubsubsection{\texorpdfstring{layer\_forward()}{layer\_forward()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} layer\+\_\+forward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}{LAYER}} \texorpdfstring{$\ast$}{*}}]{l,  }\item[{\mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{x }\end{DoxyParamCaption})}
+
+
+
+Performs a forward pass on the layer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & The layer. \\
+\hline
+{\em x} & The input to the layer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the layer. 
+\end{DoxyReturn}
+\Hypertarget{layer_8h_a4039b4f0a53faa320dc2454029b8d1e0}\label{layer_8h_a4039b4f0a53faa320dc2454029b8d1e0} 
+\index{layer.h@{layer.h}!layer\_nograd\_forward@{layer\_nograd\_forward}}
+\index{layer\_nograd\_forward@{layer\_nograd\_forward}!layer.h@{layer.h}}
+\doxysubsubsection{\texorpdfstring{layer\_nograd\_forward()}{layer\_nograd\_forward()}}
+{\footnotesize\ttfamily double \texorpdfstring{$\ast$}{*} layer\+\_\+nograd\+\_\+forward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}{LAYER}} \texorpdfstring{$\ast$}{*}}]{l,  }\item[{double \texorpdfstring{$\ast$}{*}}]{x }\end{DoxyParamCaption})}
+
+
+
+Performs a forward pass on the layer without creating a graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & The layer. \\
+\hline
+{\em x} & The input to the layer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output of the layer. 
+\end{DoxyReturn}
+\Hypertarget{layer_8h_a94b27ace44b13c54d963573edc683df6}\label{layer_8h_a94b27ace44b13c54d963573edc683df6} 
+\index{layer.h@{layer.h}!layer\_regularization@{layer\_regularization}}
+\index{layer\_regularization@{layer\_regularization}!layer.h@{layer.h}}
+\doxysubsubsection{\texorpdfstring{layer\_regularization()}{layer\_regularization()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{grad_8h_ac3b68946b2b4d05a1e4bbb47e4591f22}{VALUE}} \texorpdfstring{$\ast$}{*} layer\+\_\+regularization (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}{LAYER}} \texorpdfstring{$\ast$}{*}}]{l,  }\item[{\mbox{\hyperlink{neuron_8h_ae0f774b9119326109e149ba5e323dca0}{REG}}}]{reg,  }\item[{double}]{c }\end{DoxyParamCaption})}
+
+
+
+Calculates the regularization term for the layer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & The layer. \\
+\hline
+{\em reg} & The regularization type. \\
+\hline
+{\em c} & The regularization coefficient. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The regularization term. 
+\end{DoxyReturn}
+\Hypertarget{layer_8h_aba59b6a16c6ce99ad337b2000781c1c6}\label{layer_8h_aba59b6a16c6ce99ad337b2000781c1c6} 
+\index{layer.h@{layer.h}!layer\_zero\_grad@{layer\_zero\_grad}}
+\index{layer\_zero\_grad@{layer\_zero\_grad}!layer.h@{layer.h}}
+\doxysubsubsection{\texorpdfstring{layer\_zero\_grad()}{layer\_zero\_grad()}}
+{\footnotesize\ttfamily void layer\+\_\+zero\+\_\+grad (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{layer_8h_abc8cd33c5000bb5d521aee4590f33de9}{LAYER}} \texorpdfstring{$\ast$}{*}}]{l }\end{DoxyParamCaption})}
+
+
+
+Sets the gradients of the layer to zero. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & The layer. \\
+\hline
+\end{DoxyParams}

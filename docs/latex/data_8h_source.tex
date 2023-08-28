@@ -1,0 +1,36 @@
+\doxysection{data.\+h}
+\hypertarget{data_8h_source}{}\label{data_8h_source}\index{load/data.h@{load/data.h}}
+\mbox{\hyperlink{data_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ \_\_DATA\_H\_\_}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ \_\_DATA\_H\_\_}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../utils/grad.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ PIXELS\ 784}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ LABELS\ 10}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ TRAIN\_SIZE\ 60000}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ TEST\_SIZE\ 10000}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ TRIAL\_SIZE\ 10}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ TRAIN\_IMAGES\ "{}./data/mnist\_train.csv"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ TEST\_IMAGES\ "{}./data/mnist\_test.csv"{}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ TRIAL\_IMAGES\ "{}./data/mnist\_trial.csv"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{data_8h_a41d31ce25ec5bae20777e81dc1a70342}{print\_image}}(\textcolor{keywordtype}{double}\ *image,\ \textcolor{keywordtype}{int}\ label);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{double}\ *\mbox{\hyperlink{data_8h_aed3841b2dfab345b136e350560834092}{read\_image}}(FILE\ *file,\ \textcolor{keywordtype}{int}\ *label);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{data_8h_a9582a7bd87f7c089c278005f699d4b72}{read\_csv}}(\textcolor{keywordtype}{char}\ *path,\ \textcolor{keywordtype}{double}\ ***images\_addr,\ \textcolor{keywordtype}{int}\ **labels\_addr,\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{data_8h_a0ac40aab5faa6f6ae2003857e1980e17}{free\_images}}(\textcolor{keywordtype}{double}\ **,\ \textcolor{keywordtype}{int}\ *,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_DATA\_H\_\_}}
+
+\end{DoxyCode}
